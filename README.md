@@ -56,10 +56,11 @@ Sign in to the Azure portal, select the + Create a resource button in the upper-
 - Search for Azure Data Explorer. Under Azure Data Explorer, select Create.
 
 ![Screen capture 1](/assets/images/Challenge1-Task1-Pic2.png)
+![Screen capture 1](/assets/images/Challenge1-Task1-Pic3.png)
 
 - Fill out the basic cluster details with the following information.
 
-![Screen capture 1](/assets/images/Challenge1-Task1-Pic3.png)
+![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
 
 - Subscription: Use your own subscription
 - Resource Group: It's recommended to create a new resource group for the microhack's resources. Call it: <youralias>-microhack-RG
