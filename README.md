@@ -50,10 +50,17 @@ In addition, you will get familiarized with two tools that enables you to connec
 
 ##### Task 1: Create an ADX cluster resource
 Sign in to the Azure portal, select the + Create a resource button in the upper-left corner of the portal’s main page.
+
 ![Screen capture 1](/assets/images/Challenge1-Task1-Pic1.png)
   
 - Search for Azure Data Explorer. Under Azure Data Explorer, select Create.
+
+![Screen capture 1](/assets/images/Challenge1-Task1-Pic2.png)
+
 - Fill out the basic cluster details with the following information.
+
+![Screen capture 1](/assets/images/Challenge1-Task1-Pic3.png)
+
 - Subscription: Use your own subscription
 - Resource Group: It's recommended to create a new resource group for the microhack's resources. Call it: <youralias>-microhack-RG
 - Cluster name: Must be unique per participants. Call it: <youralias>microhackadx (cluster name must begin with a letter and contain lowercase alphanumeric characters.)
