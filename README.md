@@ -42,7 +42,7 @@ Generally speaking, when you interact with Azure Data Explorer, you're going to 
 5. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
 6. Visualize results: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
 
-####Challenge 1: Create ADX cluster
+#### Challenge 1: Create ADX cluster
 To use Azure Data Explorer (ADX), you first have to create an ADX cluster, and create one or more databases in that cluster. Each database has tables. Then you can ingest data into a database so that you can run queries against it.
 
 In this challenge, you will design an ADX based architecture, create an ADX cluster and database.
@@ -50,6 +50,7 @@ In addition, you will get familiarized with two tools that enables you to connec
 
 ##### Task 1: Create an ADX cluster resource
 Sign in to the Azure portal, select the + Create a resource button in the upper-left corner of the portal’s main page.
+![Screen capture 1](/assets/images/Challenge1-Task1-Pic1.png)
   
 - Search for Azure Data Explorer. Under Azure Data Explorer, select Create.
 - Fill out the basic cluster details with the following information.
