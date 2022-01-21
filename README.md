@@ -128,7 +128,7 @@ For this microhack, select the Destination details to be a Log Analytics workspa
 Save the new diagnostic logs settings and metrics.
 
   
-#### Challenge 2: Create integration with Azure services
+#### Challenge 2: Create integration with Azure services (Event Hub and Storage Account)
   
   Goal: Data ingestion to ADX is the process used to load data records from one or more sources into a table in your ADX cluster. Once ingested, the data becomes available for query.
 
@@ -259,8 +259,107 @@ The desired result:
   
   ![Screen capture 1](/assets/images/Challenge2-Task2-Pic7.png)
 
+  ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to blob storage
+  
+  This time, we want to ingest data from an Azure Storage account. This storage account has the data on device’s telemetry history from 30th December 2021, device property changes and the commands executed on the device. 
+  
+  Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
+  
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic1.png)
+  
+  Make sure the cluster and the Database field are correct. Select **Create new table**
+  
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic2.png)
+  
+  In the **Link to source**, paste the SAS URL of the blob storage. Then select one of the **Schema defining file** (all the files in that blob storage have the same schema) and click **Next**
+  
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic3.png)
+  
+  Make sure you use the **JSON Data format**
+  
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic4.png)
+  
+  Once the message **“Queueing blobs is complete”** appears, you can close this page. Then, you can click on the **Event Grid** link under **Continuous Ingestion**.
 
-#### Challenge 3: Ingest and transform data
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic5.png)
+  
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic6.png)
+  
+  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic7.png)
+  
+  Repeat the above steps for ingesting data from the following blob containers: <add connection strings>
+  - logistics-connectivity-commands
+  - logistics-telemetry
+  - logistics-properties
+
+  Check the table
+  ```
+  LogisticsLifecycle
+  | count 
+  ```
+#### Challenge 3: Explore and transform data
+  
+  ##### Task 1: Explore the data
+  
+  Kusto queries can be used to filter data and return specific information. Recall that you've looked at arbitrary rows of data to get a sense of its structure. Now, you'll learn how to choose specific rows of the data. The where operator filters results that satisfy a certain condition.
+
+  ```
+LogisticsTelemetry
+| where deviceId startswith "x"
+| take 10
+  ```
+
+Similarly, you can filter where the time of an event occurred more than a certain number of years/days/minutes ago. For example, run the following query, where 2m means 2 minutes:
+
+  ```
+LogisticsTelemetry
+| where enqueuedTime > ago(2m)
+| take 10 
+  ```
+
+Find out how many records are in the table
+
+  ```
+LogisticsTelemetry
+| summarize count() // or: count
+  ```
+
+Find out how many records have enqueuedTime bigger than the last 10 minutes.
+  ```
+LogisticsTelemetry
+| where enqueuedTime > ago(10m)
+| summarize count()
+ ``` 
+ 
+Find out how many records startswith "x" 
+
+LogisticsTelemetry
+| where deviceId startswith "x"
+| summarize count()
+
+Find out how many records startswith "x" , per device ID (aggregate by device ID)
+
+LogisticsTelemetry
+| where deviceId startswith "x"
+| summarize count() by deviceId
+
+Find out how many records startswith "x" , per device ID (aggregate by device ID). Render a timechart
+
+LogisticsTelemetry
+| where deviceId startswith "x"
+| summarize count() by deviceId
+| render piechart 
+
+LogisticsTelemetry
+| where deviceId startswith "x"
+| summarize count() by deviceId
+| render piechart 
+
+LogisticsTelemetry
+| extend h = telemetry.Humidity
+| summarize avg(toint(h)) by bin(enqueuedTime, 1m)
+| render timechart 
+
 
 #### Challenge 4: Retrieve stats on the ingested data
   
@@ -268,8 +367,13 @@ The desired result:
 
 #### Challenge 5: Setup basic monitoring of the cluster
   Cost monitoring and optimization techniques.
+  
   ADX Insights Ingestion monitoring.
+  
   The Insights blade in the portal (in the ADX cluster page, under monitoring) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
+  
   The Overview tab shows: Metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
+  
   The Key Metrics tab shows a unified view of some of the cluster's metrics. They're grouped into general metrics, query-related metrics, ingestion-related metrics, and streaming ingestion-related metrics.
+  
   The Ingestion tab provides details about the ingestion operations, including the result of your ingestion attempts (per DB of per table), the latency of the ingestion process, and more.
