@@ -136,7 +136,7 @@ Save the new diagnostic logs settings and metrics.
 
   The goal of this challenge is to learn how you can integrate and create continuous ingestion from Azure Event Hub (a managed pipeline) [and a one-time ingestion from Azure Blob Storage (direct access) to your ADX cluster.]
 
-  Task 1: Use the “One-click” UI (User Interfaces) Create a data connection to Event Hub
+  ##### Task 1: Use the “One-click” UI (User Interfaces) Create a data connection to Event Hub
 For the best user experience, we will use the Azure Data Explorer Web UI (aka: Kusto web Explorer/KWE). To open it, click on the “Open in Web UI” or just go to [Kusto Web Explorer](https://dataexplorer.azure.com)
   
   ![Screen capture 1](/assets/images/Challenge2-Task1-Pic1.png)
@@ -178,6 +178,40 @@ For the best user experience, we will use the Azure Data Explorer Web UI (aka: K
   KWE let us easily connect to Azure Event Hub and build table with a schema based on an event sample data.  Go to the “Data” blade. The name of this capability is “One-click ingestion” and it allows you to quicky ingest data.
   
   ![Screen capture 1](/assets/images/Challenge2-Task1-Pic2.png)
+  
+  ##### Task 2: Configure the Event hub data connection
+  
+  The ’Ingest new data’ wizard opens. 
+  
+  Destination tab:
+The Cluster and Database fields are auto-populated. Select the ADX cluster and the Database that you created in challenge #1. We haven’t created a table, so use the “Create new table” option. 
+  
+  Source tab:
+Set the Source type to “Event Hub”, and specify the event hub details:
+- Subscription: Kusto_PM_Experiments <permissions!>
+- Event hub namepsace: adx-microhack-eh-ns
+- Event hub: adx-microhac-eh-2
+- Data connection name: we used ‘Database1-adx-microhack-eh’. Data connection connects ADX database to Event hub (or to storage account through Event Grid notifications)
+- Consumer group: use your respective Consumer Group
+- Compression: None
+  Event system properties: leave empty. For this Microhack, we are not going to use them. (System properties store properties (meta data) that are set by the Event Hubs service, at the time the event is enqueued. ADX can embed the selected properties into a new column in your destination table.)
+
+  Click on “Next: Schema” 
+  
+  Schema tab:
+  
+  Sample data will be read from the Event Hub and you will see data preview. The default format is TXT. Our Event hub send JSON data. Change the Data format field to JSON. Keep the nested levels to 1. As you can see, ADX inferred the column names and the data type according to the JSON’s data.
+Among the types you can  find GUID, string, datetime, and dynamic.
+You can thing about dynamic column as JSON-like type. The dynamic  data type can take on any value of other scalar data types like: bool, datetime, guid, int, long, real, string, timespan, an array of dynamic values, and a property bag (dictionary) that maps unique string values to dynamic values.
+Although the dynamic type appears JSON-like, it can hold values that the JSON model does not represent because they don't exist in JSON (e.g., long, real, datetime, timespan, and guid).
+
+The 'Nested levels' field expands levels of nested data in dynamic type columns into separate columns. Although the raw event’s JSON format has nestedness of 2 levels, for this microhack we will use 1 level and see later how to leverage the powerful update policy capability of ADX to break these dynamic columns.
+
+This is example of the telemetry JSON (that is part of a bigger JSON that is being sent from the evet hub):
+```
+{"Location":{"alt":"252.71910000000003","lon":-93.2176,"lat":41.7911},"LostTags":4,"Light":"49115.368835522917","Temp":"32.93780098864795","TotalTags":186,"Status":"Offline","TransportationMode":"Land","BatteryLife":-5,"Tilt":"-52.64112596209344","Humidity":"74.018336518734131","Shock":"6.696957328744805","Pressure":"603.69265616418761","ActiveTags":170}
+```
+  
 
 #### Challenge 3: Ingest and transform data
 
