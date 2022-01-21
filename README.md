@@ -131,6 +131,8 @@ Now – you can write a simple QKL query: print ("hello world"),
 and hit the “Run” button. The query will be executed and its result can be seen in the result grid on the bottom of the page. 
   
   ![Screen capture 1](/assets/images/Challenge1-Task3-Pic2.png)
+  
+  You can also [Kusto Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/tools/kusto-explorer), the desktop client to run queries and benefit from some advanced features available in the client.
 
 ##### Task 4: Enable Diagnostic logs
   Azure Monitor diagnostic logs provide monitoring data about the operation of Azure resources. ADX uses diagnostic logs for insights on ingestion, commands, query, and tables usage. You can export operation logs to Azure Storage, event hub, or Log Analytics.
@@ -316,6 +318,11 @@ The desired result:
   | count 
   ```
 
+  **Relevant docs for this challenge:**
+  - [Azure Data Explorer data ingestion overview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-overview)
+  - [Use one-click ingestion to ingest data into Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-one-click)
+   
+  
 #### Challenge 3: Explore and transform data
   
 **Expected Learning Outcomes:**
@@ -449,7 +456,6 @@ The schema of the new table would be:
      | project deviceId, enqueuedTime, NumOfTagsCalculated, Temp
 }
   ```
-
   
   **Create the update policy**
 
@@ -458,15 +464,20 @@ The schema of the new table would be:
 @'[{ "IsEnabled": true, "Source": "LogisticsTelemetry", "Query": "LogisticsTelemetryData_v2()", "IsTransactional": true, "PropagateIngestionProperties": false}]'
 ```
   
+**Relevant docs for this challenge:**
+  - [Kusto update policy - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/updatepolicy)
+    
 #### Challenge 4: Check stats and key metrics of the cluster
-  Cost monitoring and optimization techniques.
+    
+  ##### Task 1: Go to the Insights blade in the portal (in the ADX cluster page, under monitoring): It provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
   
-  ADX Insights Ingestion monitoring.
+  ##### Task 2: Go to the Overview tab: It provides metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
   
-  The Insights blade in the portal (in the ADX cluster page, under monitoring) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
+  ##### Task 3: Go to the Key Metrics tab: It shows a unified view of some of the cluster's metrics. They're grouped into general metrics, query-related metrics, ingestion-related metrics, and streaming ingestion-related metrics.
   
-  The Overview tab shows: Metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
+  ##### Task 4: Go to The Ingestion tab: It provides details about the ingestion operations, including the result of your ingestion attempts (per DB of per table), the latency of the ingestion process, and more.
   
-  The Key Metrics tab shows a unified view of some of the cluster's metrics. They're grouped into general metrics, query-related metrics, ingestion-related metrics, and streaming ingestion-related metrics.
+  ##### Task 5: Go to the Overview tab: You can stop the cluster to save compute costs. You will not lose any data. ADX persists data on blob storage. When you restart your cluster, it will take few minutes to startup and warm up the cache before you can start writing the queries. When the cluster has been stopped, no continuous ingestion will be performed.
   
-  The Ingestion tab provides details about the ingestion operations, including the result of your ingestion attempts (per DB of per table), the latency of the ingestion process, and more.
+**Relevant docs for this challenge:**
+  - [Monitor Azure Data Explorer performance, health & usage with metrics | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/using-metrics)
