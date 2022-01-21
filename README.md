@@ -93,11 +93,38 @@ When the deployment is complete, select Go to resource. You will be redirected t
   | Admin         | Default selected  | The admin field is disabled. New admins can be added after database creation. |
   | Database Name | TelemetryDatabase | The database name must be unique within the cluster.                          |
   | Retention period | 365	| The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested. This is the longer-term storage (in reliable storage) retention. |
-  | Cache period	| 31	| The time span (in days) for which to keep frequently queried data available in SSD storage or RAM of the cluster’s VM, rather than in longer-term storage. 
-  Azure Data Explorer stores all its ingested data in reliable storage (most commonly Azure Blob Storage), away from its actual processing (such as Azure Compute) nodes. To speed up queries on that data, Azure Data Explorer caches it, or parts of it, on its processing nodes, SSD, or even in RAM. 
-  The best query performance is achieved when all ingested data is cached. Sometimes, certain data doesn't justify the cost of keeping it "warm" in local SSD storage. For example, many teams consider that rarely accessed older log records are of lesser importance. They prefer to have reduced performance when querying this data, rather than pay to keep it warm all the time. 
-  By increasing the cache policy, more VMs will be required to store data on their SSD/RAM. For Azure Data Explorer cluster, compute cost (VMs) is the most significant part of cluster cost as compared to storage and networking. |
- 
+  | Cache period	| 31	| The time span (in days) for which to keep frequently queried data available in SSD storage or RAM of the cluster’s VM, rather than in longer-term storage. Azure Data Explorer stores all its ingested data in reliable storage (most commonly Azure Blob Storage), away from its actual processing (such as Azure Compute) nodes. To speed up queries on that data, Azure Data Explorer caches it, or parts of it, on its processing nodes, SSD, or even in RAM. The best query performance is achieved when all ingested data is cached. Sometimes, certain data doesn't justify the cost of keeping it "warm" in local SSD storage. For example, many teams consider that rarely accessed older log records are of lesser importance. They prefer to have reduced performance when querying this data, rather than pay to keep it warm all the time. By increasing the cache policy, more VMs will be required to store data on their SSD/RAM. For Azure Data Explorer cluster, compute cost (VMs) is the most significant part of cluster cost as compared to storage and networking. |
+
+- Select Create to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster Overview blade. You can see the database that you have created from on Databases blade.
+
+  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  
+##### Task 3: Write your first Kusto Query Language (KQL) query
+  What is a Kusto query?
+  Azure Data Explorer provides a web experience that enables you to connect to your Azure Data Explorer clusters and write and run Kusto Query Language queries. The web experience is available in the Azure portal and as a stand-alone web application, the Azure Data Explorer Web UI, that we will use later.
+  Kusto query is a read-only request to process data and return results. The request is stated in plain text that's easy to read. A Kusto query has one or more query statements and returns data in a tabular or graph format.
+  In the next challenges, we'll ingest data to the cluster, and then learn the most important concepts in KQL and write interesting queries. In this task, we you write a few basic queries to get an understanding of the environment.
+  To start, go to the “Query” blade. In this example, you'll use the Azure Data Explorer web interface as a query editor (Kusto Query Language can also be used in Azure Monitor Logs, Azure Sentinel, and other services that are built on-top od Azure Data Explorer.)
+  
+  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  
+  We can see our cluster and the database that we created.
+To tun KQL queries, we must select the database that the query will run on (the scope). 
+To select the data base, just click on the database name.
+Now – you can write a simple QKL query: print ("hello world"),
+and hit the “Run” button. The query will be executed and its result can be seen in the result grid on the bottom of the page. 
+
+##### Task 4: Enable Diagnostic logs
+  Azure Monitor diagnostic logs provide monitoring data about the operation of Azure resources. ADX uses diagnostic logs for insights on ingestion, commands, query, and tables usage. You can export operation logs to Azure Storage, event hub, or Log Analytics.
+  Diagnostic logs are disabled by default. To enable diagnostic logs, go to your cluster page in the portal. Under Monitoring, select Diagnostic settings. 
+
+  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  
+  Select Add diagnostic setting. In the Diagnostic settings window. Enter a Diagnostic setting name as per your preference. 
+Select all the log categories and metrics (SucceededIngestion, FailedIngestion, IngestionBatching, Command, or Query, TableUsageStatistics, TableDetails and Journal).
+For this microhack, select the Destination details to be a Log Analytics workspace and select your own workspace or create a new one.
+Save the new diagnostic logs settings and metrics.
+
   
 #### Challenge 2: Create integration with Azure services
 
