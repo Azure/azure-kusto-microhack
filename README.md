@@ -78,7 +78,23 @@ Creating an ADX cluster takes in average 10-15 minutes.
 
 When the deployment is complete, select Go to resource. You will be redirected the ADX cluster resource page. On the top of Overview page, you can see the basic details of the cluster, like: the Subscription, the state (running) and the URI.
 
+##### Task 2: Create a Database
+- You're now ready for the second step in the process: database creation.
+- On the Overview tab, select Create database. Alternatively, you can go to the “Databases” blade.
 
+  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+
+- Fill out the form with the following information.
+  
+  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  
+  | Setting       | Suggested Value   | Field Description                                                             |
+  | ------------- | ----------------- | ----------------------------------------------------------------------------- |
+  | Admin         | Default selected  | The admin field is disabled. New admins can be added after database creation. |
+  | ------------- | ----------------- | ----------------------------------------------------------------------------- |
+  | Database Name | TelemetryDatabase | The database name must be unique within the cluster.                          |
+  | ------------- | ----------------- | ----------------------------------------------------------------------------- |
+  
 #### Challenge 2: Create integration with Azure services
 
 #### Challenge 3: Ingest and transform data
