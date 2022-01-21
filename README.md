@@ -113,12 +113,14 @@ To tun KQL queries, we must select the database that the query will run on (the 
 To select the data base, just click on the database name.
 Now – you can write a simple QKL query: print ("hello world"),
 and hit the “Run” button. The query will be executed and its result can be seen in the result grid on the bottom of the page. 
+  
+  ![Screen capture 1](/assets/images/Challenge1-Task3-Pic2.png)
 
 ##### Task 4: Enable Diagnostic logs
   Azure Monitor diagnostic logs provide monitoring data about the operation of Azure resources. ADX uses diagnostic logs for insights on ingestion, commands, query, and tables usage. You can export operation logs to Azure Storage, event hub, or Log Analytics.
   Diagnostic logs are disabled by default. To enable diagnostic logs, go to your cluster page in the portal. Under Monitoring, select Diagnostic settings. 
 
-  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  ![Screen capture 1](/assets/images/Challenge1-Task4-Pic1.png)
   
   Select Add diagnostic setting. In the Diagnostic settings window. Enter a Diagnostic setting name as per your preference. 
 Select all the log categories and metrics (SucceededIngestion, FailedIngestion, IngestionBatching, Command, or Query, TableUsageStatistics, TableDetails and Journal).
