@@ -249,7 +249,7 @@ The desired result:
   
   Click on ”Next: Summary” to create this data connection.
 
-  The Azure portal opens on the Event Hubs Instance page, so you can monitor the Event hub’s outgoing messages. In addition, in the One click’s ** Continuous ingestion from Event Hub established ** window, all steps should be marked with green check marks when establishment finishes successfully. The cards below these steps give you options to explore your data with Quick queries or Monitor the Event Hub connections and data. 
+  The Azure portal opens on the Event Hubs Instance page, so you can monitor the Event hub’s outgoing messages. In addition, in the One click’s **Continuous ingestion from Event Hub established** window, all steps should be marked with green check marks when establishment finishes successfully. The cards below these steps give you options to explore your data with Quick queries or Monitor the Event Hub connections and data. 
   
   Use the “Take 10” link (under “Quick queries”). Review the query and the data.
   
