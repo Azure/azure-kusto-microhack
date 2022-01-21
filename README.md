@@ -297,6 +297,7 @@ The desired result:
   LogisticsLifecycle
   | count 
   ```
+
 #### Challenge 3: Explore and transform data
   
   ##### Task 1: Explore the data
@@ -333,39 +334,105 @@ LogisticsTelemetry
  
 Find out how many records startswith "x" 
 
+  ```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count()
-
+```
+  
 Find out how many records startswith "x" , per device ID (aggregate by device ID)
 
+  ```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count() by deviceId
-
+```
+  
 Find out how many records startswith "x" , per device ID (aggregate by device ID). Render a timechart
 
+  ```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count() by deviceId
 | render piechart 
+```
 
+  ```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count() by deviceId
 | render piechart 
-
+```
+  ```
 LogisticsTelemetry
 | extend h = telemetry.Humidity
 | summarize avg(toint(h)) by bin(enqueuedTime, 1m)
 | render timechart 
+```
 
 
-#### Challenge 4: Retrieve stats on the ingested data
+  ##### Task 2: Create an update policy
   
+  By taking 10 records, we see that the telemetry column has a JSON structure. In this task we will use update policy to manipulate the raw data in the LogisticsTelemetry table (the source table) and transform the JSON data into sperate columns in a new table that we’ll create (“target table”).
+We want to create a new table, with a calculated column (NumOfTagsCalculated) that will hold the sum: telemetry.TotalTags + telemetry.TotalTags - telemetry.LostTags.
+The schema of the new table would be:
+```
+  ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:int)
+```
   
+  ![Screen capture 1](/assets/images/Challenge3-Task2-Pic1.png)
+  
+  Example (note that the order of the keys may be different):
+  
+  ```
+{
+    "BatteryLife": 73,
+    "Light": "70720.236143472212",
+    "Tilt": "18.608539012789223",
+    "Humidity": "60.178854625386215",
+    "Shock": "-4.6141182265359628",
+    "Pressure": "529.61165751122712",
+    "ActiveTags": 165,
+    "TransportationMode": "Ocean",
+    "Status": "Online",
+    "LostTags": 9,
+    "Temp": "7.5054504554744765",
+    "TotalTags": 185,
+    "Location": {
+        "alt": 1361.0469,
+        "lon": -107.7473,
+        "lat": 36.0845
+    }
+}
+```
+  
+  **Build the target table**
+  
+  ```
+  .create table LogisticsTelemetryExtended  ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:long, Temp:real)
+  ```
+  
+  **Create a function for the update policy**
+  
+  ```
+  .create-or-alter function LogisticsTelemetryData_v2()  
+    {
+    LogisticsTelemetry
+     | extend  NumOfTagsCalculated = toint(toint(telemetry.TotalTags) +  toint(telemetry.ActiveTags) - toint(telemetry.LostTags))
+     | extend Temp = toreal(telemetry.Temp)
+     | project deviceId, enqueuedTime, NumOfTagsCalculated, Temp
+}
+  ```
 
-#### Challenge 5: Setup basic monitoring of the cluster
+  
+  **Create the update policy**
+
+  ```
+.alter table LogisticsTelemetryExtended_v2 policy update 
+@'[{ "IsEnabled": true, "Source": "LogisticsTelemetry", "Query": "LogisticsTelemetryData_v2()", "IsTransactional": true, "PropagateIngestionProperties": false}]'
+```
+  
+#### Challenge 4: Check stats and key metrics of the cluster
   Cost monitoring and optimization techniques.
   
   ADX Insights Ingestion monitoring.
