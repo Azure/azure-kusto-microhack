@@ -348,6 +348,7 @@ LogisticsTelemetry
   ```
 
 Find out how many records have enqueuedTime bigger than the last 10 minutes.
+
   ```
 LogisticsTelemetry
 | where enqueuedTime > ago(10m)
@@ -356,7 +357,7 @@ LogisticsTelemetry
  
 Find out how many records startswith "x" 
 
-  ```
+```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count()
@@ -364,7 +365,7 @@ LogisticsTelemetry
   
 Find out how many records startswith "x" , per device ID (aggregate by device ID)
 
-  ```
+```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count() by deviceId
@@ -372,20 +373,22 @@ LogisticsTelemetry
   
 Find out how many records startswith "x" , per device ID (aggregate by device ID). Render a timechart
 
-  ```
+```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count() by deviceId
 | render piechart 
 ```
 
-  ```
+
+```
 LogisticsTelemetry
 | where deviceId startswith "x"
 | summarize count() by deviceId
 | render piechart 
 ```
-  ```
+
+```
 LogisticsTelemetry
 | extend h = telemetry.Humidity
 | summarize avg(toint(h)) by bin(enqueuedTime, 1m)
