@@ -322,7 +322,8 @@ The desired result:
 - Write simple queries using Kusto Query Language
 - Create update policies to transform the data at ingestion
   
-  ##### Task 1: Explore the data
+  
+##### Task 1: Explore the data
   
   Kusto queries can be used to filter data and return specific information. Recall that you've looked at arbitrary rows of data to get a sense of its structure. Now, you'll learn how to choose specific rows of the data. The where operator filters results that satisfy a certain condition.
 
