@@ -82,11 +82,11 @@ When the deployment is complete, select Go to resource. You will be redirected t
 - You're now ready for the second step in the process: database creation.
 - On the Overview tab, select Create database. Alternatively, you can go to the “Databases” blade.
 
-  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  ![Screen capture 1](/assets/images/Challenge1-Task2-Pic1.png)
 
 - Fill out the form with the following information.
   
-  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  ![Screen capture 1](/assets/images/Challenge1-Task2-Pic2.png)
   
   | Setting       | Suggested Value   | Field Description                                                             |
   | ------------- | ----------------- | ----------------------------------------------------------------------------- |
@@ -97,7 +97,7 @@ When the deployment is complete, select Go to resource. You will be redirected t
 
 - Select Create to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster Overview blade. You can see the database that you have created from on Databases blade.
 
-  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  ![Screen capture 1](/assets/images/Challenge1-Task2-Pic3.png)
   
 ##### Task 3: Write your first Kusto Query Language (KQL) query
   What is a Kusto query?
@@ -106,7 +106,7 @@ When the deployment is complete, select Go to resource. You will be redirected t
   In the next challenges, we'll ingest data to the cluster, and then learn the most important concepts in KQL and write interesting queries. In this task, we you write a few basic queries to get an understanding of the environment.
   To start, go to the “Query” blade. In this example, you'll use the Azure Data Explorer web interface as a query editor (Kusto Query Language can also be used in Azure Monitor Logs, Azure Sentinel, and other services that are built on-top od Azure Data Explorer.)
   
-  ![Screen capture 1](/assets/images/Challenge1-Task1-Pic4.png)
+  ![Screen capture 1](/assets/images/Challenge1-Task3-Pic1.png)
   
   We can see our cluster and the database that we created.
 To tun KQL queries, we must select the database that the query will run on (the scope). 
