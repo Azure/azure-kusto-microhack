@@ -8,7 +8,7 @@ This MicroHack will focus on enabling the participants to design ADX based big d
 - **Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**
 This MicroHack will focus on enabling the participants to write kusto queries to explore and analyse the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the MicroHack 1 to begin with this MicroHack.
 
-**- Microhack 3: Advanced capabilities**
+- **Microhack 3: Advanced capabilities**
 This Microhack will focus on enabling the participants to create Materialized Views, Functions, and used advanced operators to explore and analyse the data.
 
 ## Microhack 1: Cluster Creation and Data Ingestion (Preview)
