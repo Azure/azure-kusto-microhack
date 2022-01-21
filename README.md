@@ -91,9 +91,9 @@ When the deployment is complete, select Go to resource. You will be redirected t
   | Setting       | Suggested Value   | Field Description                                                             |
   | ------------- | ----------------- | ----------------------------------------------------------------------------- |
   | Admin         | Default selected  | The admin field is disabled. New admins can be added after database creation. |
-  | ------------- | ----------------- | ----------------------------------------------------------------------------- |
   | Database Name | TelemetryDatabase | The database name must be unique within the cluster.                          |
-  | ------------- | ----------------- | ----------------------------------------------------------------------------- |
+  | Retention period | 365	| The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested. This is the longer-term storage (in reliable storage) retention. |
+
   
 #### Challenge 2: Create integration with Azure services
 
