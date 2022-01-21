@@ -216,5 +216,13 @@ This is example of the telemetry JSON (that is part of a bigger JSON that is bei
 #### Challenge 3: Ingest and transform data
 
 #### Challenge 4: Retrieve stats on the ingested data
+  
+  
 
 #### Challenge 5: Setup basic monitoring of the cluster
+  Cost monitoring and optimization techniques.
+  ADX Insights Ingestion monitoring.
+  The Insights blade in the portal (in the ADX cluster page, under monitoring) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
+  The Overview tab shows: Metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
+  The Key Metrics tab shows a unified view of some of the cluster's metrics. They're grouped into general metrics, query-related metrics, ingestion-related metrics, and streaming ingestion-related metrics.
+  The Ingestion tab provides details about the ingestion operations, including the result of your ingestion attempts (per DB of per table), the latency of the ingestion process, and more.
