@@ -1,13 +1,25 @@
 # Azure Data Explorer Microhack
 
 Kusto Product Group and Microsoft Global Black Belt team are pleased to present this challenge based, collaboration driven, discover-by-doing learning experience to you. Microhacks are divided into two parts to cater enough time for the participants to understand the key concepts of Azure Data Explorer effectively.
-- MicroHack 1: Cluster creation and data ingestion
+
+- **Microhack 1: Cluster creation and data ingestion**
 This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
-- MicroHack 2: Data exploration and visualization using Kusto Query Language (KQL)
+
+- **Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**
 This MicroHack will focus on enabling the participants to write kusto queries to explore and analyse the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the MicroHack 1 to begin with this MicroHack.
 
+**- Microhack 3: Advanced capabilities**
+This Microhack will focus on enabling the participants to create Materialized Views, Functions, and used advanced operators to explore and analyse the data.
 
-## MicroHack 1: ADX Cluster Creation and Data Ingestion
+## Microhack 1: Cluster Creation and Data Ingestion
+
+This Microhack is organised in the following 4 challenges:
+- Challenge 1: Create ADX cluster
+- Challenge 2: Create integration with Azure services (Event Hub and Storage Account)
+- Challenge 3: Explore and transform data
+- Challenge 4: Check stats and key metrics of the cluster
+
+Each challenge has a set of tasks that need to be completed in order to move to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
 
 ### Scenario 
 
@@ -35,18 +47,22 @@ By analyzing structured, semi-structured, and unstructured data across time seri
 Azure Data Explorer capabilities are extended by other services built on its powerful query language, including [Azure Monitor logs](https://docs.microsoft.com/en-us/azure/log-analytics/), [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), [Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/), and [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
 
 Generally speaking, when you interact with Azure Data Explorer, you're going to go through the following workflow (ADX Microhacks will cover all these steps):
-1. Create an ADX cluster - To use Azure Data Explorer you first create a cluster. An Azure Data Explorer cluster is the most basic unit.
-2. Create database: Each cluster has one or more databases in that cluster. Each Azure Data Explorer cluster can hold up to 10,000 databases and each database up to 10,000 tables. 
-3. Ingest data: Load data into database tables so that you can run queries against it. Azure Data Explorer supports several ingestion methods.
-4. Query database: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. 
-5. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
-6. Visualize results: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
+1. **Create an ADX cluster**: To use Azure Data Explorer you first create a cluster. An Azure Data Explorer cluster is the most basic unit.
+2. **Create database**: Each cluster has one or more databases in that cluster. Each Azure Data Explorer cluster can hold up to 10,000 databases and each database up to 10,000 tables. 
+3. **Ingest data**: Load data into database tables so that you can run queries against it. Azure Data Explorer supports several ingestion methods.
+4. **Query data**: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
+5. **Visualize results**: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
 
 #### Challenge 1: Create ADX cluster
 To use Azure Data Explorer (ADX), you first have to create an ADX cluster, and create one or more databases in that cluster. Each database has tables. Then you can ingest data into a database so that you can run queries against it.
 
 In this challenge, you will design an ADX based architecture, create an ADX cluster and database.
 In addition, you will get familiarized with two tools that enables you to connect to your Azure Data Explorer and run queries.
+
+**Expected Learning Outcomes:**
+- Deploy ADX cluster from Azure Portal
+- Use ADX clients such as Kusto Web Explorer and Kusto Explorer
+- The initial configuration of the cluster at creation time
 
 ##### Task 1: Create an ADX cluster resource
 Sign in to the Azure portal, select the + Create a resource button in the upper-left corner of the portal’s main page.
@@ -130,11 +146,13 @@ Save the new diagnostic logs settings and metrics.
   
 #### Challenge 2: Create integration with Azure services (Event Hub and Storage Account)
   
-  Goal: Data ingestion to ADX is the process used to load data records from one or more sources into a table in your ADX cluster. Once ingested, the data becomes available for query.
+  Data ingestion to ADX is the process used to load data records from one or more sources into a table in your ADX cluster. Once ingested, the data becomes available for query.
 
   ADX supports several ingestion methods. [These methods include ingestion tools, connectors and plugins, managed pipelines, programmatic ingestion using SDKs, and direct access to ingestion.]
 
-  The goal of this challenge is to learn how you can integrate and create continuous ingestion from Azure Event Hub (a managed pipeline) [and a one-time ingestion from Azure Blob Storage (direct access) to your ADX cluster.]
+  **Expected Learning Outcomes:**
+  - Create continuous ingestion from Azure Event Hub (a managed pipeline) 
+  - Create one-time ingestion from Azure Blob Storage (direct access) to your ADX cluster.
 
   ##### Task 1: Use the “One-click” UI (User Interfaces) Create a data connection to Event Hub
 For the best user experience, we will use the Azure Data Explorer Web UI (aka: Kusto web Explorer/KWE). To open it, click on the “Open in Web UI” or just go to [Kusto Web Explorer](https://dataexplorer.azure.com)
@@ -299,6 +317,10 @@ The desired result:
   ```
 
 #### Challenge 3: Explore and transform data
+  
+**Expected Learning Outcomes:**
+- Write simple queries using Kusto Query Language
+- Create update policies to transform the data at ingestion
   
   ##### Task 1: Explore the data
   
