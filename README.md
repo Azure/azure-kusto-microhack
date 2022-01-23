@@ -53,6 +53,9 @@ Generally speaking, when you interact with Azure Data Explorer, you're going to 
 4. **Query data**: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
 5. **Visualize results**: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
 
+#### The microhack architecture
+![Screen capture 1](/assets/images/architecture.png)
+
 #### Challenge 1: Create ADX cluster
 To use Azure Data Explorer (ADX), you first have to create an ADX cluster, and create one or more databases in that cluster. Each database has tables. Then you can ingest data into a database so that you can run queries against it.
 
@@ -67,12 +70,12 @@ In addition, you will get familiarized with two tools that enables you to connec
 ##### Task 1: Create an ADX cluster resource
 Sign in to the Azure portal, select the + Create a resource button in the upper-left corner of the portal’s main page.
 
-![Screen capture 1](/assets/images/Challenge1-Task1-Pic1.png)
+<img src="/assets/images/Challenge1-Task1-Pic1.png" width="400">
   
 - Search for Azure Data Explorer. Under Azure Data Explorer, select Create.
 
-![Screen capture 1](/assets/images/Challenge1-Task1-Pic2.png)
-![Screen capture 1](/assets/images/Challenge1-Task1-Pic3.png)
+<img src="/assets/images/Challenge1-Task1-Pic2.png" width="450">
+<img src="/assets/images/Challenge1-Task1-Pic3.png" width="450">
 
 - Fill out the basic cluster details with the following information.
 
