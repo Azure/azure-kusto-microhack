@@ -164,7 +164,7 @@ For the best user experience, we will use the Azure Data Explorer Web UI (aka: K
   
   ![Screen capture 1](/assets/images/Challenge2-Task1-Pic1.png)
   
-  The web UI opens. The messages are in a JSON format and they are being sent to an event hub named <>. This is how a message looks like:
+  The web UI opens. The messages are in a JSON format and they are being sent to an event hub named "adx-microhac-eh-2". This is how a sample message looks like:
   ```
   {
   "messageProperties": {
@@ -198,7 +198,8 @@ For the best user experience, we will use the Azure Data Explorer Web UI (aka: K
   "templateId": "dtmi:ltifbs50b:mecybcwqm"
 }
 ```
-  KWE let us easily connect to Azure Event Hub and build table with a schema based on an event sample data.  Go to the “Data” blade. The name of this capability is “One-click ingestion” and it allows you to quicky ingest data.
+
+KWE lets us easily connect to Azure Event Hub and build a table which is schema based on an event sample data. Go to the “Data” blade. The name of this capability is “One-click ingestion” and it allows you to quicky ingest data.
   
   ![Screen capture 1](/assets/images/Challenge2-Task1-Pic2.png)
   
@@ -211,11 +212,11 @@ The Cluster and Database fields are auto-populated. Select the ADX cluster and t
   
   Source tab:
 Set the Source type to “Event Hub”, and specify the event hub details:
-- Subscription: Kusto_PM_Experiments <permissions!>
+- Subscription: Kusto_PM_Experiments
 - Event hub namepsace: adx-microhack-eh-ns
 - Event hub: adx-microhac-eh-2
 - Data connection name: we used ‘Database1-adx-microhack-eh’. Data connection connects ADX database to Event hub (or to storage account through Event Grid notifications)
-- Consumer group: use your respective Consumer Group
+- Consumer group: use your respective consumer group
 - Compression: None
   Event system properties: leave empty. For this Microhack, we are not going to use them. (System properties store properties (meta data) that are set by the Event Hubs service, at the time the event is enqueued. ADX can embed the selected properties into a new column in your destination table.)
   
@@ -225,9 +226,10 @@ Set the Source type to “Event Hub”, and specify the event hub details:
   
   Schema tab:
   
-  Sample data will be read from the Event Hub and you will see data preview. The default format is TXT. Our Event hub send JSON data. Change the Data format field to JSON. Keep the nested levels to 1. As you can see, ADX inferred the column names and the data type according to the JSON’s data.
-Among the types you can  find GUID, string, datetime, and dynamic.
-You can thing about dynamic column as JSON-like type. The dynamic  data type can take on any value of other scalar data types like: bool, datetime, guid, int, long, real, string, timespan, an array of dynamic values, and a property bag (dictionary) that maps unique string values to dynamic values.
+  Sample data will be read from the Event Hub and you will see data preview. The default format is TXT, but our Event hub sends JSON data.
+Change the Data format field to JSON. Keep the nested levels as 1. As you can see, ADX inferred the column names and the data type according to the JSON’s data.
+Among the types you can find GUID, string, datetime, and dynamic.</br>
+You can think about dynamic column as JSON-like type. The dynamic data type can take on any value of other scalar data types like: bool, datetime, guid, int, long, real, string, timespan, an array of dynamic values, and a property bag (dictionary) that maps unique string values to dynamic values.</br>
 Although the dynamic type appears JSON-like, it can hold values that the JSON model does not represent because they don't exist in JSON (e.g., long, real, datetime, timespan, and guid).
 
 The 'Nested levels' field expands levels of nested data in dynamic type columns into separate columns. Although the raw event’s JSON format has nestedness of 2 levels, for this microhack we will use 1 level and see later how to leverage the powerful update policy capability of ADX to break these dynamic columns.
@@ -242,22 +244,22 @@ This is example of the telemetry JSON (that is part of a bigger JSON that is bei
   
   ![Screen capture 1](/assets/images/Challenge2-Task2-Pic2-2.png)
   
-  For this microhack, we want to learn how ADX deal with dynamic fields, so we will keep the Nested levels as 1.
+  For this microhack, we want to learn how ADX deals with dynamic fields, so we will keep the Nested levels as 1.
   
   ![Screen capture 1](/assets/images/Challenge2-Task2-Pic3.png)
   
   ![Screen capture 1](/assets/images/Challenge2-Task2-Pic4.png)
   
-  Open the command viewer. You can see the control commands that were be automatically generated.
-  In contrast to Kusto queries, control commands are requests to Kusto to process or modify data or metadata. control commands are distinguished from queries by having the first character in the text of the command be the dot (.) character (which can't start a query). Not all control commands modify data or metadata. The large class of commands that start with .show, are used to display metadata or data. For example, the .show tables command returns a list of all tables in the current database.
+  Open the command viewer. You can see the control commands that were automatically generated.
+  In contrast to Kusto queries, control commands are requests to Kusto to process or modify data or metadata. Control commands are distinguished from queries by having the first character in the text of the command be the dot (.) character (which can't start a query). Not all control commands modify data or metadata. The large class of commands that start with .show, are used to display metadata or data. For example, the .show tables command returns a list of all tables in the current database.
   
   Review the control commands that were generated by One-Click. 
   
   ![Screen capture 1](/assets/images/Challenge2-Task2-Pic5.png)
   
   You can see the:
-  .create table <table> command: creates a new empty table.
-  .alter table <table> policy ingestionbatching: which alters the batching policy of the specified table. During the ingestion process, ADX optimizes for throughput by batching small ingress data chunks together before ingestion. Batching reduces the resources consumed by the ingestion process. The batching policy defines when to seal a batch and send it for the next stage of the ingestion (once the first condition is met):
+  '.create table table_name command', which creates a new empty table.
+ '.alter table table_name policy ingestionbatching', which alters the batching policy of the specified table. During the ingestion process, ADX optimizes for throughput by batching small ingress data chunks together before ingestion. Batching reduces the resources consumed by the ingestion process. The batching policy defines when to seal a batch and send it for the next stage of the ingestion (once the first condition is met):
   
   | Parameter | Value | Description |
   | --------- | ----- | ----------- |
@@ -472,15 +474,20 @@ The schema of the new table would be:
     
 #### Challenge 4: Check stats and key metrics of the cluster
     
-  ##### Task 1: Go to the Insights blade in the portal (in the ADX cluster page, under monitoring): It provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
+  ##### Task 1:  #####
+  Go to the Insights blade in the portal (in the ADX cluster page, under monitoring): It provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
   
-  ##### Task 2: Go to the Overview tab: It provides metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
+  ##### Task 2: #####
+  Go to the Overview tab: It provides metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
   
-  ##### Task 3: Go to the Key Metrics tab: It shows a unified view of some of the cluster's metrics. They're grouped into general metrics, query-related metrics, ingestion-related metrics, and streaming ingestion-related metrics.
+  ##### Task 3: #####
+  Go to the Key Metrics tab: It shows a unified view of some of the cluster's metrics. They're grouped into general metrics, query-related metrics, ingestion-related metrics, and streaming ingestion-related metrics.
   
-  ##### Task 4: Go to The Ingestion tab: It provides details about the ingestion operations, including the result of your ingestion attempts (per DB of per table), the latency of the ingestion process, and more.
+  ##### Task 4: #####
+  Go to The Ingestion tab: It provides details about the ingestion operations, including the result of your ingestion attempts (per DB of per table), the latency of the ingestion process, and more.
   
-  ##### Task 5: Go to the Overview tab: You can stop the cluster to save compute costs. You will not lose any data. ADX persists data on blob storage. When you restart your cluster, it will take few minutes to startup and warm up the cache before you can start writing the queries. When the cluster has been stopped, no continuous ingestion will be performed.
+  ##### Task 5: #####
+  Go to the Overview tab: You can stop the cluster to save compute costs. You will not lose any data. ADX persists data on blob storage. When you restart your cluster, it will take few minutes to startup and warm up the cache before you can start writing the queries. When the cluster has been stopped, no continuous ingestion will be performed.
   
 **Relevant docs for this challenge:**
   - [Monitor Azure Data Explorer performance, health & usage with metrics | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/using-metrics)
