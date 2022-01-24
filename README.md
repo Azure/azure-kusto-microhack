@@ -136,7 +136,7 @@ and hit the “Run” button. The query will be executed and its result can be s
   
   ![Screen capture 1](/assets/images/Challenge1-Task3-Pic2.png)
   
-  You can also [Kusto Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/tools/kusto-explorer), the desktop client to run queries and benefit from some advanced features available in the client.
+  You can also download [Kusto Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/tools/kusto-explorer), the desktop client to run queries and benefit from some advanced features available in the client.
 
 ##### Task 4: Enable Diagnostic logs
   Azure Monitor diagnostic logs provide monitoring data about the operation of Azure resources. ADX uses diagnostic logs for insights on ingestion, commands, queries, and tables usage. You can export operation logs to Azure Storage, Event Hub, or Log Analytics.
