@@ -415,7 +415,7 @@ LogisticsTelemetry
 We want to create a new table, with a calculated column (NumOfTagsCalculated) that will hold the sum: telemetry.TotalTags + telemetry.TotalTags - telemetry.LostTags.
 The schema of the new table would be:
 ```
-  ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:int)
+  ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:int, Temp:real)
 ```
   
   ![Screen capture 1](/assets/images/Challenge3-Task2-Pic1.png)
