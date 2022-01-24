@@ -6,26 +6,26 @@ Kusto Product Group and Microsoft Global Black Belt team are pleased to present 
 This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
 
 - **Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**
-This MicroHack will focus on enabling the participants to write kusto queries to explore and analyse the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the MicroHack 1 to begin with this MicroHack.
+This MicroHack will focus on enabling the participants to write kusto queries to explore and analyse the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the Microhack 1 before beginning with Microhack 2.
 
 - **Microhack 3: Advanced capabilities**
-This Microhack will focus on enabling the participants to create Materialized Views, Functions, and used advanced operators to explore and analyse the data.
+This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyse the data.
 
 ## Microhack 1: Cluster Creation and Data Ingestion (Preview)
 
-This Microhack is organised in the following 4 challenges:
+This Microhack is organised into the following 4 challenges:
 - Challenge 1: Create ADX cluster
 - Challenge 2: Create integration with Azure services (Event Hub and Storage Account)
 - Challenge 3: Explore and transform data
 - Challenge 4: Check stats and key metrics of the cluster
 
-Each challenge has a set of tasks that need to be completed in order to move to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
+Each challenge has a set of tasks that need to be completed in order to move on to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
 
 ### Scenario 
 
 Contoso is a supply chain logistics company that runs a fleet of ships, trucks, and cargo planes to transport and deliver goods around the world. Some of the world’s largest enterprises rely on Contoso’s logistics capabilities to deliver goods to their end customers. Contoso has invested in connecting its fleet with sensors that measure temperature, pressure, humidity, tilt, shock, and light exposure inside its fleet. These sensors emit telemetry data every 1 minute, property data whenever there is a change in the device property, and command data whenever a new command is executed. 
 
-Contoso is looking for a suitable data storage and analytical solution that provides out of the box integration with Azure IoT services such as IoT Hub, Event Hubs as well as can read data from storage accounts. Contoso is developing a SaaS application that will allow its customers to track, trace and monitor their shipments. Contoso wants to offer out of the box visualizations with interactive capabilities to enable its customers to drill-in/drill-out of the data. Contoso will offer its customers to view and analyze last 6 months data. Contoso will retain every customer’s data for up to 1 year. Contoso wants to offer blazing fast loading of visualizations to its customers.
+Contoso is looking for a suitable data storage and analytical solution that provides out of the box integration with Azure IoT services such as IoT Hub, Event Hubs as well as can read data from storage accounts. Contoso is developing a SaaS application that will allow its customers to track, trace and monitor their shipments. Contoso wants to offer out of the box visualizations with interactive capabilities to enable its customers to drill-in/drill-out of the data. Contoso will offer its customers to view and analyze the last 6 months data. Contoso will retain every customer’s data for up to 1 year. Contoso wants to offer blazing fast loading of visualizations to its customers.
 This MicroHack walks through the steps in designing, creating, and configuring Azure Data Explorer clusters keeping in mind these requirements. Once the cluster is deployed, this MicroHack enlists the steps to ingest data into ADX databases and tables using various integration methods such as One Click ingestion.
 
 ### Pre-requisites
@@ -33,10 +33,12 @@ This MicroHack walks through the steps in designing, creating, and configuring A
 - (Not applicable for Proctor led events) Deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (use this guide to create this infrastructure). For proctor led events, this infrastructure has been pre-created for you. Proctor will provide connection strings, or SAS tokens at an appropriate stage of the hack.
 - Authorization to create an Azure Data Explorer cluster or Synapse Data Explorer Pool
 
-### Overview
+### Overview - The microhack architecture
 
-Following architecture has been deployed for you, except the ADX cluster and its integration with other Azure services (indicated by dashed lines).
+The following architecture has been deployed for you, except the ADX cluster and its integration with other Azure services.
 IoT Central acts as the source of telemetry generated by Contoso’s sensors installed on its fleet of trucks, vessels, and airplanes. Telemetry data is streamed on continuous basis to the Event Hub. Device logs, device property changes and commands executed on the devices are stored in a Storage Account as blobs. 
+
+![Screen capture 1](/assets/images/architecture.png)
 
 #### What is Azure Data Explorer and when is it a good fit?
 
@@ -53,14 +55,13 @@ Generally speaking, when you interact with Azure Data Explorer, you're going to 
 4. **Query data**: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
 5. **Visualize results**: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
 
-#### The microhack architecture
-![Screen capture 1](/assets/images/architecture.png)
+
 
 #### Challenge 1: Create ADX cluster
 To use Azure Data Explorer (ADX), you first have to create an ADX cluster, and create one or more databases in that cluster. Each database has tables. Then you can ingest data into a database so that you can run queries against it.
 
 In this challenge, you will design an ADX based architecture, create an ADX cluster and database.
-In addition, you will get familiarized with two tools that enables you to connect to your Azure Data Explorer and run queries.
+In addition, you will get familiarized with two tools that enable you to connect to your Azure Data Explorer and run queries.
 
 **Expected Learning Outcomes:**
 - Deploy ADX cluster from Azure Portal
@@ -83,7 +84,7 @@ Sign in to the Azure portal, select the + Create a resource button in the upper-
 
 - Subscription: Use your own subscription
 - Resource Group: It's recommended to create a new resource group for the microhack's resources. Call it: <youralias>-microhack-RG
-- Cluster name: Must be unique per participants. Call it: <youralias>microhackadx (cluster name must begin with a letter and contain lowercase alphanumeric characters.)
+- Cluster name: Must be unique for each participant. Call it: <youralias>microhackadx (cluster name must begin with a letter and contain lowercase alphanumeric characters.)
 - Region: France Central
 -	Enable performance update (EngineV3): keep the default (enabled)
 -	Compute specification: For a production system, select the specification that best meets your needs (storage optimized or compute optimized). For this Microhack we can use ‘Compute optimized’, Extra small (2 cores), Standard_D11_v2.
@@ -95,7 +96,7 @@ You can keep all the other configurations with the default values.
 Select Review + create to review your cluster details. Then, select Create to provision the cluster. Provisioning typically takes about 10 minutes.
 Creating an ADX cluster takes in average 10-15 minutes.
 
-When the deployment is complete, select Go to resource. You will be redirected the ADX cluster resource page. On the top of Overview page, you can see the basic details of the cluster, like: the Subscription, the state (running) and the URI.
+When the deployment is complete, select Go to resource. You will be redirected to the ADX cluster resource page. On the top of the Overview page, you can see the basic details of the cluster, like: the Subscription, the state (running) and the URI.
 
 ##### Task 2: Create a Database
 - You're now ready for the second step in the process: database creation.
@@ -114,7 +115,7 @@ When the deployment is complete, select Go to resource. You will be redirected t
   | Retention period | 365	| The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested. This is the longer-term storage (in reliable storage) retention. |
   | Cache period	| 31	| The time span (in days) for which to keep frequently queried data available in SSD storage or RAM of the cluster’s VM, rather than in longer-term storage. Azure Data Explorer stores all its ingested data in reliable storage (most commonly Azure Blob Storage), away from its actual processing (such as Azure Compute) nodes. To speed up queries on that data, Azure Data Explorer caches it, or parts of it, on its processing nodes, SSD, or even in RAM. The best query performance is achieved when all ingested data is cached. Sometimes, certain data doesn't justify the cost of keeping it "warm" in local SSD storage. For example, many teams consider that rarely accessed older log records are of lesser importance. They prefer to have reduced performance when querying this data, rather than pay to keep it warm all the time. By increasing the cache policy, more VMs will be required to store data on their SSD/RAM. For Azure Data Explorer cluster, compute cost (VMs) is the most significant part of cluster cost as compared to storage and networking. |
 
-- Select Create to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster Overview blade. You can see the database that you have created from on Databases blade.
+- Select Create to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster Overview blade. You can see the database that you have created from on the Databases blade.
 
   ![Screen capture 1](/assets/images/Challenge1-Task2-Pic3.png)
   
@@ -122,8 +123,8 @@ When the deployment is complete, select Go to resource. You will be redirected t
   What is a Kusto query?
   Azure Data Explorer provides a web experience that enables you to connect to your Azure Data Explorer clusters and write and run Kusto Query Language queries. The web experience is available in the Azure portal and as a stand-alone web application, the Azure Data Explorer Web UI, that we will use later.
   Kusto query is a read-only request to process data and return results. The request is stated in plain text that's easy to read. A Kusto query has one or more query statements and returns data in a tabular or graph format.
-  In the next challenges, we'll ingest data to the cluster, and then learn the most important concepts in KQL and write interesting queries. In this task, we you write a few basic queries to get an understanding of the environment.
-  To start, go to the “Query” blade. In this example, you'll use the Azure Data Explorer web interface as a query editor (Kusto Query Language can also be used in Azure Monitor Logs, Azure Sentinel, and other services that are built on-top od Azure Data Explorer.)
+  In the next challenges, we'll ingest data to the cluster, and then learn the most important concepts in KQL and write interesting queries. In this task, you will write a few basic queries to get an understanding of the environment.
+  To start, go to the “Query” blade. In this example, you'll use the Azure Data Explorer web interface as a query editor (Kusto Query Language can also be used in Azure Monitor Logs, Azure Sentinel, and other services that are built on-top of Azure Data Explorer.)
   
   ![Screen capture 1](/assets/images/Challenge1-Task3-Pic1.png)
   
@@ -138,7 +139,7 @@ and hit the “Run” button. The query will be executed and its result can be s
   You can also [Kusto Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/tools/kusto-explorer), the desktop client to run queries and benefit from some advanced features available in the client.
 
 ##### Task 4: Enable Diagnostic logs
-  Azure Monitor diagnostic logs provide monitoring data about the operation of Azure resources. ADX uses diagnostic logs for insights on ingestion, commands, query, and tables usage. You can export operation logs to Azure Storage, event hub, or Log Analytics.
+  Azure Monitor diagnostic logs provide monitoring data about the operation of Azure resources. ADX uses diagnostic logs for insights on ingestion, commands, queries, and tables usage. You can export operation logs to Azure Storage, Event Hub, or Log Analytics.
   Diagnostic logs are disabled by default. To enable diagnostic logs, go to your cluster page in the portal. Under Monitoring, select Diagnostic settings. 
 
   ![Screen capture 1](/assets/images/Challenge1-Task4-Pic1.png)
@@ -229,12 +230,12 @@ Set the Source type to “Event Hub”, and specify the event hub details:
   Sample data will be read from the Event Hub and you will see data preview. The default format is TXT, but our Event hub sends JSON data.
 Change the Data format field to JSON. Keep the nested levels as 1. As you can see, ADX inferred the column names and the data type according to the JSON’s data.
 Among the types you can find GUID, string, datetime, and dynamic.</br>
-You can think about dynamic column as JSON-like type. The dynamic data type can take on any value of other scalar data types like: bool, datetime, guid, int, long, real, string, timespan, an array of dynamic values, and a property bag (dictionary) that maps unique string values to dynamic values.</br>
+You can think of dynamic column as a JSON-like type. The dynamic data type can take on any value of other scalar data types like: bool, datetime, guid, int, long, real, string, timespan, an array of dynamic values, and a property bag (dictionary) that maps unique string values to dynamic values.</br>
 Although the dynamic type appears JSON-like, it can hold values that the JSON model does not represent because they don't exist in JSON (e.g., long, real, datetime, timespan, and guid).
 
 The 'Nested levels' field expands levels of nested data in dynamic type columns into separate columns. Although the raw event’s JSON format has nestedness of 2 levels, for this microhack we will use 1 level and see later how to leverage the powerful update policy capability of ADX to break these dynamic columns.
 
-This is example of the telemetry JSON (that is part of a bigger JSON that is being sent from the evet hub):
+This is an example of the telemetry JSON (that is part of a bigger JSON that is being sent from the evet hub):
 ```
 {"Location":{"alt":"252.71910000000003","lon":-93.2176,"lat":41.7911},"LostTags":4,"Light":"49115.368835522917","Temp":"32.93780098864795","TotalTags":186,"Status":"Offline","TransportationMode":"Land","BatteryLife":-5,"Tilt":"-52.64112596209344","Humidity":"74.018336518734131","Shock":"6.696957328744805","Pressure":"603.69265616418761","ActiveTags":170}
 ```
@@ -278,7 +279,7 @@ The desired result:
   
   Use the “Take 10” link (under “Quick queries”). Review the query and the data.
   
-  Notice that the query begins with a reference to the data table. This data is piped into the first and only operator in our query, take, returns a specific number of arbitrary rows.
+  Notice that the query begins with a reference to the data table. This data is piped into the first and only operator in our query (take) and returns a specific number of arbitrary rows.
   Run the query by either selecting the Run button above the query window or selecting Shift+Enter on the keyboard.
   Use the “Manage Data Connection” link (under the “Monitor” section) to go to the portal and review your data connection. The data connection is saved under the Database.
   
@@ -292,11 +293,11 @@ The desired result:
   
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic1.png)
   
-  Make sure the cluster and the Database field are correct. Select **Create new table**
+  Make sure the cluster and the Database fields are correct. Select **Create new table**
   
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic2.png)
   
-  In the **Link to source**, paste the SAS URL of the blob storage. Then select one of the **Schema defining file** (all the files in that blob storage have the same schema) and click **Next**
+  In the **Link to source**, paste the SAS URL of the blob storage (the proctors will provide this information). Then select one of the **Schema defining file** (all the files in that blob storage have the same schema) and click **Next**
   
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic3.png)
   
@@ -312,7 +313,7 @@ The desired result:
   
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic7.png)
   
-  Repeat the above steps for ingesting data from the following blob containers: <add connection strings>
+  Repeat the above steps for ingesting data from the following blob containers: (the proctors will provide this information)
   - logistics-connectivity-commands
   - logistics-telemetry
   - logistics-properties
@@ -376,7 +377,7 @@ LogisticsTelemetry
 | summarize count()
 ```
   
-Find out how many records startswith "x" , per device ID (aggregate by device ID)
+Find out how many records start with "x" , per device ID (aggregate by device ID)
 
 ```
 LogisticsTelemetry
@@ -411,8 +412,8 @@ LogisticsTelemetry
 
   ##### Task 2: Create an update policy
   
-  By taking 10 records, we see that the telemetry column has a JSON structure. In this task we will use update policy to manipulate the raw data in the LogisticsTelemetry table (the source table) and transform the JSON data into sperate columns in a new table that we’ll create (“target table”).
-We want to create a new table, with a calculated column (NumOfTagsCalculated) that will hold the sum: telemetry.TotalTags + telemetry.TotalTags - telemetry.LostTags.
+  By taking 10 records, we can see that the telemetry column has a JSON structure. In this task we will use update policy to manipulate the raw data in the LogisticsTelemetry table (the source table) and transform the JSON data into separate columns in a new table that we’ll create (“target table”).
+We want to create a new table, with a calculated column (we will call it: NumOfTagsCalculated) that contains the following value: telemetry.TotalTags + telemetry.TotalTags - telemetry.LostTags.
 The schema of the new table would be:
 ```
   ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:int, Temp:real)
@@ -458,7 +459,7 @@ The schema of the new table would be:
 #### Challenge 4: Check stats and key metrics of the cluster
     
   ##### Task 1:  #####
-  Go to the Insights blade in the portal (in the ADX cluster page, under monitoring): It provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
+  Go to the Insights blade in the portal (in the ADX cluster page, under monitoring). This blade provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and ingestion operations.
   
   ##### Task 2: #####
   Go to the Overview tab: It provides metrics tiles that highlight the availability and overall status of the cluster for quick health assessment. A summary of active Azure Advisor recommendations and resource health status. Charts that show the top CPU and memory consumers and the number of unique users over time.
