@@ -446,28 +446,11 @@ The schema of the new table would be:
   
   **Build the target table**
   
-  ```
-  .create table LogisticsTelemetryExtended  ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:long, Temp:real)
-  ```
-  
   **Create a function for the update policy**
-  
-  ```
-  .create-or-alter function LogisticsTelemetryData_v2()  
-    {
-    LogisticsTelemetry
-     | extend  NumOfTagsCalculated = toint(toint(telemetry.TotalTags) +  toint(telemetry.ActiveTags) - toint(telemetry.LostTags))
-     | extend Temp = toreal(telemetry.Temp)
-     | project deviceId, enqueuedTime, NumOfTagsCalculated, Temp
-}
-  ```
-  
+    
   **Create the update policy**
 
-  ```
-.alter table LogisticsTelemetryExtended_v2 policy update 
-@'[{ "IsEnabled": true, "Source": "LogisticsTelemetry", "Query": "LogisticsTelemetryData_v2()", "IsTransactional": true, "PropagateIngestionProperties": false}]'
-```
+
   
 **Relevant docs for this challenge:**
   - [Kusto update policy - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/updatepolicy)
