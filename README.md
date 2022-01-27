@@ -520,7 +520,7 @@ References:
 
 ##### Task 0: Connect to the cluster
 
-For the next tasks, connect to the cluster [ADX MIcrohack Cluster](https://adxmicrohackcluster.eastus.kusto.windows.net/)
+For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmicrohackcluster.eastus.kusto.windows.net/)
 
 We will use the table LogisticsTelemetryExtended. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
 
