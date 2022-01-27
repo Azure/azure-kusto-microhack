@@ -5,7 +5,7 @@ Kusto Product Group and Microsoft Global Black Belt team are pleased to present 
 - **Microhack 1: Cluster creation and data ingestion**
 This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
 
-- **Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**
+- [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack#microhack-2-data-exploration-and-visualisation-with-kql-preview)
 This MicroHack will focus on enabling the participants to write kusto queries to explore and analyse the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the Microhack 1 before beginning with Microhack 2.
 
 - **Microhack 3: Advanced capabilities**
