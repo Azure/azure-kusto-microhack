@@ -516,9 +516,7 @@ This query has a single tabular expression statement. The statement begins with 
 
 References:
 - [SQL to Kusto cheat sheet](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet)
-- [aka.ms/sql2KQL](aka.ms/sql2KQL)
 - [KQL cheat sheets](https://github.com/marcusbakker/KQL/blob/master/kql_cheat_sheet.pdf)
-- [Tech Community Article on KQL](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-kql-cheat-sheets/ba-p/1057404)
 
 ##### Task 0: Connect to the cluster
 
