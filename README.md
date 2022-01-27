@@ -475,3 +475,141 @@ The schema of the new table would be:
   
 **Relevant docs for this challenge:**
   - [Monitor Azure Data Explorer performance, health & usage with metrics | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/using-metrics)
+
+
+## Microhack 1: Data exploration and visualisation with KQL (Preview)
+
+This Microhack is organised into the following 4 challenges:
+- Challenge 5: Starting with basics KQL
+- Challenge 6: Timeseries analysis
+- Challenge 7: Visualisation
+
+Each challenge has a set of tasks that need to be completed in order to move on to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
+
+##### Challenge 5: Starting with basic KQL
+
+In this challenge you’ll write queries in Kusto Query Language (KQL) to explore and gain insights from your data. 
+
+Expected Learning Outcomes:
+- Know how to write queries with KQL.
+- Use KQL to explore data by using the most common operators.
+
+**What is a Kusto query?**
+A Kusto query is a read-only request to process data and return results. The request is stated in plain text that's easy to read, author, and automate. A Kusto query has one or more query statements and returns data in a tabular or graph format.
+
+**What is a tabular statement?**
+The most common kind of query statement is a tabular expression statement. Both its input and its output consist of tables or tabular datasets.
+
+Tabular statements contain zero or more operators. Each operator starts with a tabular input and returns a tabular output. Operators are sequenced by a pipe (|). Data flows, or is piped, from one operator to the next. The data is filtered or manipulated at each step and then fed into the following step.
+
+It's like a funnel, where you start out with an entire data table. Each time the data passes through another operator, it's filtered, rearranged, or summarized. Because the piping of information from one operator to another is sequential, the query's operator order is important. At the end of the funnel, you're left with a refined output.
+Let's look at an example query:
+
+```
+LogisticsTelemetryExtended
+| where enqueuedTime > ago(7d) 
+| where messageSource == "telemetry"
+| count 
+```
+
+This query has a single tabular expression statement. The statement begins with a reference to the table LogisticsTelemetry and contains the operators where and count. Each operator is separated by a pipe. The data rows for the source table are filtered by the value of the enqueuedTime column and then filtered by the value of the messageSource column. In the last line, the query returns a table with a single column and a single row that contains the count of the remaining rows.
+
+References:
+- [SQL to Kusto cheat sheet](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet)
+- [aka.ms/sql2KQL](aka.ms/sql2KQL)
+- [KQL cheat sheets](https://github.com/marcusbakker/KQL/blob/master/kql_cheat_sheet.pdf)
+- [Tech Community Article on KQL](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-kql-cheat-sheets/ba-p/1057404)
+
+##### Task 0: Connect to the cluster
+
+For the next tasks, connect to the cluster [ADX MIcrohack Cluster](https://adxmicrohackcluster.eastus.kusto.windows.net/)
+
+We will use the table LogisticsTelemetryExtended. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
+
+##### Task 1: Explore the table and columns
+Write a query to learn the table, its columns, data types using any random 10 rows
+
+##### Task 2: Keep the columns of your interest
+Write a query to see only the desired columns
+
+[project-away operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
+[Project operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
+
+##### Task 3: Filter the output
+Write a query to see only the desired rows. Take arbitrary 10 records from the last 10 minutes.
+
+Hint 1: “ago”
+Hind 2: In case you see 0 records, remember that operators are sequenced by a pipe (|). Data is piped, from one operator to the next. The data is filtered or manipulated at each step and then fed into the following step. By using the ‘Take’ operator, there is no guarantee which records are returned
+
+[where operator in Kusto query language - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
+
+##### Task 4: Sorting the results
+Write a query to get the 5 records which have the highest temperature, from the last 3 days. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
+
+[sort operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sortoperator)
+
+##### Task 5: Reorder, rename, add columns
+Write a query to convert Fahrenheit temperatures to Celsius temperatures. For readability, show them as the 2 left-most columns. You can use the following formula: 
+C = (F – 32) * 5/9
+
+Hint 1: 'project' operator provides lot more features
+
+[https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
+
+##### Task 6: Total number of records
+Write a query to find out how many records are in the table. 
+
+[count operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/countoperator)
+
+##### Task 7: Aggregations and string operations
+Write a query to find out how many records were created in the last 10 mins. 
+Write another query to find all deviceIds starting with 'x'. 
+Write another query to find out how many records start with "x" , per device ID (aggregated by device ID).
+
+[String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
+[summarize operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
+
+##### Task 8: Render a chart
+Write a query to find out how many records startswith "x" , per device ID (aggregated by device ID) and render a piechart.
+
+[render operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
+
+##### Task 9: Create bins and visualize time series 
+Write a query to show a timechart of the number of records over time. Use 1 day bins (buckets). Each point on the timechart represent the number of devices on that day.
+
+[bin() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/binfunction)
+
+##### Task 10: Aggregations with time series visualisations
+Write a query to show a timechart of the **average temperature** over time. Use 30 minute bins (buckets) Each point on the timechart represent the average temperature in that 30 min period.
+
+#### Challenge 6: Going more advanced with KQL
+
+
+
+#### Challenge 7: Visualisation
+
+##### Task 1: Prepare interactive dashboards with ADX Dashboard
+
+Using Dashboard feature of Azure Data Explorer, build a dashboard that shows charts displaying:
+- Average temperature over a user specified period
+- Max humidity levels during the user specified period
+- Count of different types of vessels by transportation mode
+- For all offline devices, map the last known location and battery levels of the devices that contain “xt” or “7” in their deviceId
+
+Include **filters for the dashboard** so that the queries do not need to be modified if the user wants to analyse the charts with different values of a parameter. For example, users would like to analyse the charts over the last week, the last 14 days as well as the last 1 month. Users would also like to analyse the charts by different transportation modes.
+
+Hint 1: In the query window, explore the “Share” menu.
+ 
+- [Visualize data with the Azure Data Explorer dashboard | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
+- [Parameters in Azure Data Explorer dashboards | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/dashboard-parameters)
+
+##### Task 2: Prepare management dashboard with PowerBI
+Management users of Contoso are more familiar with PowerBI and thus would like to see aggregate dashboards in PowerBI. Prepare the following query and render the chart in PowerBI:
+- Each offline device and lost tag can mean lack of telemetry on all the shipments that Contoso is managing for its customers. Lack of visibility of this data carries a financial risk for Contoso as it opens potential claims from its customers, reputation loss and impacts future revenues. Management would like to see the dashboard of all lost tags and offline devices by transportation mode on weekly aggregation so that they can estimate the potential financial liabilities that they need to plan in their balance sheet.
+
+Hint 1: In the query window, explore the “Share” menu.
+
+There are multiple ways to connect ADX and PowerBI depending on the use case. For this Microhack, we will use the Imported Query method. Feel free to explore other methods on the docs.
+
+[Visualize data from Azure Data Explorer with a Power BI imported query | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/power-bi-imported-query)
+
