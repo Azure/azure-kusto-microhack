@@ -477,16 +477,16 @@ The schema of the new table would be:
   - [Monitor Azure Data Explorer performance, health & usage with metrics | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/using-metrics)
 
 
-## Microhack 1: Data exploration and visualisation with KQL (Preview)
+## Microhack 2: Data exploration and visualisation with KQL (Preview)
 
-This Microhack is organised into the following 4 challenges:
-- Challenge 5: Starting with basics KQL
-- Challenge 6: Timeseries analysis
+This Microhack is organised into the following 3 challenges:
+- Challenge 5: Starting with basics of KQL
+- Challenge 6: Advanced KQL operators
 - Challenge 7: Visualisation
 
 Each challenge has a set of tasks that need to be completed in order to move on to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
 
-##### Challenge 5: Starting with basic KQL
+##### Challenge 5: Starting with basics of KQL
 
 In this challenge you’ll write queries in Kusto Query Language (KQL) to explore and gain insights from your data. 
 
