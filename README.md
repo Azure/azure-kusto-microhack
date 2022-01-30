@@ -486,7 +486,7 @@ This Microhack is organised into the following 3 challenges:
 
 Each challenge has a set of tasks that need to be completed in order to move on to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
 
-##### Challenge 5: Starting with basics of KQL
+### Challenge 5: Starting with basics of KQL
 
 In this challenge you’ll write queries in Kusto Query Language (KQL) to explore and gain insights from your data. 
 
@@ -518,22 +518,22 @@ References:
 - [SQL to Kusto cheat sheet](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet)
 - [KQL cheat sheets](https://github.com/marcusbakker/KQL/blob/master/kql_cheat_sheet.pdf)
 
-##### Task 0: Connect to the cluster
+#### Task 0: Connect to the cluster
 
 For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmicrohackcluster.eastus.kusto.windows.net/)
 
 We will use the table LogisticsTelemetryExtended. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
 
-##### Task 1: Explore the table and columns
+#### Task 1: Explore the table and columns
 Write a query to learn the table, its columns, data types using any random 10 rows
 
-##### Task 2: Keep the columns of your interest
+#### Task 2: Keep the columns of your interest
 Write a query to see only the desired columns
 
 [project-away operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
 [Project operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
 
-##### Task 3: Filter the output
+#### Task 3: Filter the output
 Write a query to see only the desired rows. Take arbitrary 10 records from the last 10 minutes.
 
 Hint 1: “ago”
@@ -541,12 +541,12 @@ Hind 2: In case you see 0 records, remember that operators are sequenced by a pi
 
 [where operator in Kusto query language - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
 
-##### Task 4: Sorting the results
+#### Task 4: Sorting the results
 Write a query to get the 5 records which have the highest temperature, from the last 3 days. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
 
 [sort operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sortoperator)
 
-##### Task 5: Reorder, rename, add columns
+#### Task 5: Reorder, rename, add columns
 Write a query to convert Fahrenheit temperatures to Celsius temperatures. For readability, show them as the 2 left-most columns. You can use the following formula: 
 C = (F – 32) * 5/9
 
@@ -554,12 +554,12 @@ Hint 1: 'project' operator provides lot more features
 
 [https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 
-##### Task 6: Total number of records
+#### Task 6: Total number of records
 Write a query to find out how many records are in the table. 
 
 [count operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/countoperator)
 
-##### Task 7: Aggregations and string operations
+#### Task 7: Aggregations and string operations
 Write a query to find out how many records were created in the last 10 mins. 
 Write another query to find all deviceIds starting with 'x'. 
 Write another query to find out how many records start with "x" , per device ID (aggregated by device ID).
@@ -567,26 +567,120 @@ Write another query to find out how many records start with "x" , per device ID 
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 [summarize operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
-##### Task 8: Render a chart
+#### Task 8: Render a chart
 Write a query to find out how many records startswith "x" , per device ID (aggregated by device ID) and render a piechart.
 
 [render operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
 
-##### Task 9: Create bins and visualize time series 
+#### Task 9: Create bins and visualize time series 
 Write a query to show a timechart of the number of records over time. Use 1 day bins (buckets). Each point on the timechart represent the number of devices on that day.
 
 [bin() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/binfunction)
 
-##### Task 10: Aggregations with time series visualisations
+#### Task 10: Aggregations with time series visualisations
 Write a query to show a timechart of the **average temperature** over time. Use 30 minute bins (buckets) Each point on the timechart represent the average temperature in that 30 min period.
 
-#### Challenge 6: Going more advanced with KQL
+### Challenge 6: Going more advanced with KQL
+
+#### Task 1: Declaring variables
+Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices, over the last 30 days.
+
+#### Task 2: Add more fields to your timechart
+Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 1 minute bins.
+
+#### Task 3: Some geo-mapping
+Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
+
+Hint 1: 'top' operator, scatter chart od different kinds
+
+Once the map is displayed, you can click on the locations. Note that in order to show more details in the balloon, you need to change the render phrase to include series.
+
+[render operator with scatter chart](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
+
+#### Machine learning with Kusto and time series analysis
+
+Many interesting use cases use machine learning algorithms and derive interesting insights from telemetry data. Often, these algorithms require a strictly structured dataset as their input. The raw log data usually doesn't match the required structure and size. We will see how we can use the make-series operator to create well curated data (time series).
+
+Then, we can use built in functions like [series_decompose_anomalies](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction). Anomalies/ outliers will be detected by the Kusto service and highlighted as red dots on the time series chart.
+
+**Time series:**
+What is a time series?
+A time series is a collection of observations of well-defined data items obtained through repeated measurements over time and listed in time order. Most commonly, the data points are consistently measured at equally spaced intervals. For example, measuring the temperature of the room each minute of the day would comprise a time series. Data collected irregularly or only once are not time series.
+
+**What is time series analysis?**
+
+Time series analysis comprises methods for analyzing time series data in order to extract meaningful statistics and other characteristics of the data. Time series forecasting, for example, is the use of a model to predict future values based on previously observed values. 
+
+**What is time series decomposition?**
+Time series decomposition involves thinking of a series as a combination of 4 components: 
+- trends (increasing or decreasing value in the series)
+- seasonality (repeating short-term cycle in the series)
+- baseline (the predicted value of the series, which is the sum of seasonal and trend components) 
+- noise (The residual random variation in the series). 
+We can use built in functions, that uses time series decomposition to forecast future metric values and/or detect anomalous values.
+
+This is how time series looks like:
+
+![Screen capture 1](/assets/images/Challenge6-Task4-Pic1.png)
+
+**Why should you use series instead of the summarize operator?**
+
+The summarize operator does not add "null bins" — rows for time bin values for which there's no corresponding row in the table. It's a good idea to "pad" the table with those bins. Advanced built in ML capabilities like anomaly detection need the data points to be consistently measured at equally spaced intervals. The **make-series** can create such a “complete” series.
+
+#### Task 4: Anomaly detection
+Write a query to create an anomaly chart of the average shock, in the last 3 days.
+
+For this task, we will provide more Instructions:
+
+To generate these series, start with:
+```
+let min_t = ago(3d);
+let max_t = (toscalar(LogisticsTelemetryExtended | summarize max(enqueuedTime)));
+let step_interval = 10m;
+LogisticsTelemetryExtended
+| make-series avg_shock_series=avg(Shock) on (enqueuedTime) from (min_t) to (max_t) step step_interval 
+```
+Now, we will use this avg_shock_series and run series_decompose_anomalies.
+This built-in function takes an expression containing a series (dynamic numerical array) as input, and extracts anomalous points with scores.
+```
+| extend anomalies_flags = series_decompose_anomalies(avg_shock_series, 1) 
+| render anomalychart  with(anomalycolumns=anomalies_flags, title='avg shock anomalies') 
+```
+The anomalies/outliers can be clearly spotted in the ad_score component.
+
+[make-series](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis)
+[ADX Anomaly Detection](https://docs.microsoft.com/en-us/azure/data-explorer/anomaly-detection#time-series-anomaly-detection)
+
+FOR THE NEXT TASKS, WE WILL USE 'TAXI' TABLE IN THE SAME DATABASE. 
+Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
+
+#### Task 5: Get familiar with the new table and create a piechart
+Write queries that you have written in the previous challenge to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use isnotnull to filter payment_type before rendering the piechart.
+
+#### Task 6: Datetime operations
+Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.
+
+[dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
+
+#### Task 7: Multiple series on the same timechart
+Write a query to find out if the tip amount correlates with the number of passengers in the taxi between 1 July 2021 and 31 July 2021. Restrict the number of passengers to maximum of 4.
+
+#### Task 8: Detect anomalies in the tip amount
+Write a query to draw anomaly chart for the tip amount in the month of July 2021.
+
+#### Task 9: Let's **join** the party
+The taxi rides  table has a field of Payment_type. This is a numeric code signifying how the passenger paid for the trip. There is another table (payment_type_lookup) which contains mapping between the numeric code and the description of the payment type.
+
+To start with, take 10 records and use leftouter  join to  merge the rows of the two tables to form a new table, by matching values of the payment code column.
+
+What is the most common method of payment for rides? Credit cards or cash? What does it look like over time? 
 
 
 
-#### Challenge 7: Visualisation
 
-##### Task 1: Prepare interactive dashboards with ADX Dashboard
+### Challenge 7: Visualisation
+
+#### Task 1: Prepare interactive dashboards with ADX Dashboard
 
 Using Dashboard feature of Azure Data Explorer, build a dashboard that shows charts displaying:
 - Average temperature over a user specified period
@@ -601,7 +695,7 @@ Hint 1: In the query window, explore the “Share” menu.
 - [Visualize data with the Azure Data Explorer dashboard | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
 - [Parameters in Azure Data Explorer dashboards | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/dashboard-parameters)
 
-##### Task 2: Prepare management dashboard with PowerBI
+#### Task 2: Prepare management dashboard with PowerBI
 Management users of Contoso are more familiar with PowerBI and thus would like to see aggregate dashboards in PowerBI. Prepare the following query and render the chart in PowerBI:
 - Each offline device and lost tag can mean lack of telemetry on all the shipments that Contoso is managing for its customers. Lack of visibility of this data carries a financial risk for Contoso as it opens potential claims from its customers, reputation loss and impacts future revenues. Management would like to see the dashboard of all lost tags and offline devices by transportation mode on weekly aggregation so that they can estimate the potential financial liabilities that they need to plan in their balance sheet.
 
