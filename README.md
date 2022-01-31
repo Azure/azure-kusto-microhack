@@ -745,11 +745,9 @@ Expected result:
 
 #### Task 1: Prepare interactive dashboards with ADX Dashboard
 
-Using Dashboard feature of Azure Data Explorer, build a dashboard that shows charts displaying:
-- Average temperature over a user specified period
-- Max humidity levels during the user specified period
-- Count of different types of vessels by transportation mode
-- For all offline devices, map the last known location and battery levels of the devices that contain “xt” or “7” in their deviceId
+Using Dashboard feature of Azure Data Explorer, build a dashboard using outputs of any 5 queries (on LogisticsTelemetryExtended table) that you have created in the previous challenges with the following improvements:
+  - Add filter on the dashboard so that the user can choose the timespan
+  - Add filter on the dashboard so that the user can choose the transportation mode
 
 Include **filters for the dashboard** so that the queries do not need to be modified if the user wants to analyse the charts with different values of a parameter. For example, users would like to analyse the charts over the last week, the last 14 days as well as the last 1 month. Users would also like to analyse the charts by different transportation modes.
 
