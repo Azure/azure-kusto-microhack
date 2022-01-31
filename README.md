@@ -602,6 +602,7 @@ Hint 2: [let - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/
 Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 1 minute bins.
 
 Expected result:
+
 ![Screen capture 1](/assets/images/Challenge6-Task2-Pic1.png)
 
 #### Task 3: Some geo-mapping
@@ -691,6 +692,7 @@ Write a query to create a columnchart which will show the number of rides for ea
 [dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
   
 Expected result:
+  
 ![Screen capture 1](/assets/images/Challenge6-Task6-Pic1.png)
 
 #### Task 7: Multiple series on the same timechart
@@ -702,6 +704,7 @@ Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
 Expected result:
+  
   ![Screen capture 1](/assets/images/Challenge6-Task8-Pic1.png)
 
 #### Task 9: Let's **join** the party
@@ -712,6 +715,7 @@ To start with, take 10 records and use leftouter join to merge the rows of the t
 What is the most common method of payment for rides? Credit cards or cash? What does it look like over time? 
 
 Expected result:
+  
   ![Screen capture 1](/assets/images/Challenge6-Task9-Pic1.png)
   
   
@@ -734,6 +738,7 @@ taxi
 - Once a series is created, you can render a timechart.
 
 Expected result:
+  
   ![Screen capture 1](/assets/images/Challenge6-Task10-Pic1.png)
 
 ### Challenge 7: Visualisation
@@ -749,6 +754,8 @@ Using Dashboard feature of Azure Data Explorer, build a dashboard that shows cha
 Include **filters for the dashboard** so that the queries do not need to be modified if the user wants to analyse the charts with different values of a parameter. For example, users would like to analyse the charts over the last week, the last 14 days as well as the last 1 month. Users would also like to analyse the charts by different transportation modes.
 
 Hint 1: In the query window, explore the “Share” menu.
+  
+  ![Screen capture 1](/assets/images/Challenge7-Task1-Pic1.png)
  
 - [Visualize data with the Azure Data Explorer dashboard | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
 - [Parameters in Azure Data Explorer dashboards | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/dashboard-parameters)
