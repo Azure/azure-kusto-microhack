@@ -584,6 +584,7 @@ Write a query to show a timechart of the **average temperature** over time. Use 
 
 #### Task 1: Declaring variables
 Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices, over the last 30 days.
+Hint: let, project, in
 
 #### Task 2: Add more fields to your timechart
 Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 1 minute bins.
@@ -591,12 +592,23 @@ Write a query to show a timechart of the number of records from the last 1 hour,
 #### Task 3: Some geo-mapping
 Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
 
-Hint 1: 'top' operator, scatter chart od different kinds
+Hint 1: 'top' operator, scatter chart of different kinds
 
-Once the map is displayed, you can click on the locations. Note that in order to show more details in the balloon, you need to change the render phrase to include series.
+Once the map is displayed, you can click on the locations. Note that in order to show more details in the balloon, you need to change the render phrase to include 'series=<TempColumn>'.
 
 [render operator with scatter chart](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
 
+#### Task 4: Range
+Range is a tabular operator: it generates a single-column table of values, whose values are start, start + step, ... up to and until stop.
+Run the following query and review the results:
+
+range MyNumbers from 1 to 8 step 2
+
+Range also works with dates:
+range LastWeek from ago(7d) to now() step 1d
+
+We will use the range operator as part of the time series creation in the next tasks.
+  
 #### Machine learning with Kusto and time series analysis
 
 Many interesting use cases use machine learning algorithms and derive interesting insights from telemetry data. Often, these algorithms require a strictly structured dataset as their input. The raw log data usually doesn't match the required structure and size. We will see how we can use the make-series operator to create well curated data (time series).
@@ -605,7 +617,7 @@ Then, we can use built in functions like [series_decompose_anomalies](https://do
 
 **Time series:**
 What is a time series?
-A time series is a collection of observations of well-defined data items obtained through repeated measurements over time and listed in time order. Most commonly, the data points are consistently measured at equally spaced intervals. For example, measuring the temperature of the room each minute of the day would comprise a time series. Data collected irregularly or only once are not time series.
+A time series is a collection of observations of well-defined data items obtained through repeated measurements over time and listed in time order. Most commonly, the data points are consistently measured at equally spaced intervals. For example, measuring the temperature of the room each minute of the day would comprise a time series. Data collected irregularly is not a time series.
 
 **What is time series analysis?**
 
@@ -630,7 +642,7 @@ The summarize operator does not add "null bins" — rows for time bin values for
 #### Task 4: Anomaly detection
 Write a query to create an anomaly chart of the average shock, in the last 3 days.
 
-For this task, we will provide more Instructions:
+For this task, we will provide more instructions:
 
 To generate these series, start with:
 ```
@@ -646,19 +658,19 @@ This built-in function takes an expression containing a series (dynamic numerica
 | extend anomalies_flags = series_decompose_anomalies(avg_shock_series, 1) 
 | render anomalychart  with(anomalycolumns=anomalies_flags, title='avg shock anomalies') 
 ```
-The anomalies/outliers can be clearly spotted in the ad_score component.
+The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
 
 [make-series](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis)
 [ADX Anomaly Detection](https://docs.microsoft.com/en-us/azure/data-explorer/anomaly-detection#time-series-anomaly-detection)
 
-FOR THE NEXT TASKS, WE WILL USE 'TAXI' TABLE IN THE SAME DATABASE. 
+**FOR THE NEXT TASKS, WE WILL USE 'TAXI' TABLE IN THE SAME DATABASE.** 
 Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
 
 #### Task 5: Get familiar with the new table and create a piechart
 Write queries that you have written in the previous challenge to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use isnotnull to filter payment_type before rendering the piechart.
 
 #### Task 6: Datetime operations
-Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.
+Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.  You can use 1, 2, ..., 7 to denote Sunday through Saturday.
 
 [dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
 
@@ -667,14 +679,15 @@ Write a query to find out if the tip amount correlates with the number of passen
 
 #### Task 8: Detect anomalies in the tip amount
 Write a query to draw anomaly chart for the tip amount in the month of July 2021.
+Hint 1: make-series for the average tip amount, with 1 h steps
+Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
 #### Task 9: Let's **join** the party
 The taxi rides  table has a field of Payment_type. This is a numeric code signifying how the passenger paid for the trip. There is another table (payment_type_lookup) which contains mapping between the numeric code and the description of the payment type.
 
-To start with, take 10 records and use leftouter  join to  merge the rows of the two tables to form a new table, by matching values of the payment code column.
+To start with, take 10 records and use leftouter join to merge the rows of the two tables to form a new table, by matching values of the payment code column.
 
 What is the most common method of payment for rides? Credit cards or cash? What does it look like over time? 
-
 
 
 
