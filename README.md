@@ -759,7 +759,7 @@ Hint 1: In the query window, explore the “Share” menu.
 - [Parameters in Azure Data Explorer dashboards | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/dashboard-parameters)
 
 #### Task 2: Prepare management dashboard with PowerBI
-Visualize the outputs of [Task 5]() and [Task 6]() in Challenge 6 in PowerBI using the DirectQuery mode. 
+Visualize the outputs of [Task 5](https://github.com/Azure/azure-kusto-microhack#task-5-get-familiar-with-the-new-table-and-create-a-piechart) and [Task 6](https://github.com/Azure/azure-kusto-microhack#task-6-datetime-operations) in Challenge 6 in PowerBI using the DirectQuery mode. 
 
 Hint 1: In the query window, explore the “Share” menu.
 
