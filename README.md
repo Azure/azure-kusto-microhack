@@ -584,15 +584,18 @@ Write a query to show a timechart of the **average temperature** over time. Use 
 
 #### Task 1: Declaring variables
 Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices, over the last 30 days.
-Hint: let, project, in
+
+Hint 1: [in operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/in-cs-operator#subquery)
+Hint 2: [let - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement#examples)
 
 #### Task 2: Add more fields to your timechart
 Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 1 minute bins.
 
 #### Task 3: Some geo-mapping
 Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
-
-Hint 1: 'top' operator, scatter chart of different kinds
+<br>
+Hint 1: 'top' operator
+Hint 2: render scatterchart with (kind = map)
 
 Once the map is displayed, you can click on the locations. Note that in order to show more details in the balloon, you need to change the render phrase to include 'series=<TempColumn>'.
 
@@ -660,10 +663,10 @@ This built-in function takes an expression containing a series (dynamic numerica
 ```
 The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
 
-[make-series](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis)
+[make-series](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis) <br>
 [ADX Anomaly Detection](https://docs.microsoft.com/en-us/azure/data-explorer/anomaly-detection#time-series-anomaly-detection)
 
-**FOR THE NEXT TASKS, WE WILL USE 'TAXI' TABLE IN THE SAME DATABASE.** 
+**FOR THE NEXT TASKS, WE WILL USE 'TAXI' TABLE IN THE SAME DATABASE.**  <br>
 Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
 
 #### Task 5: Get familiar with the new table and create a piechart
@@ -678,8 +681,8 @@ Write a query to create a columnchart which will show the number of rides for ea
 Write a query to find out if the tip amount correlates with the number of passengers in the taxi between 1 July 2021 and 31 July 2021. Restrict the number of passengers to maximum of 4.
 
 #### Task 8: Detect anomalies in the tip amount
-Write a query to draw anomaly chart for the tip amount in the month of July 2021.
-Hint 1: make-series for the average tip amount, with 1 h steps
+Write a query to draw anomaly chart for the tip amount in the month of July 2021. <br>
+Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
 #### Task 9: Let's **join** the party
