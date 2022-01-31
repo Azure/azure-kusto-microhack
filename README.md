@@ -548,8 +548,8 @@ Write a query to get the 5 records which have the highest temperature, from the 
 
 #### Task 5: Reorder, rename, add columns
 Write a query to convert Fahrenheit temperatures to Celsius temperatures. For readability, show them as the 2 left-most columns. You can use the following formula: 
-C = (F – 32) * 5/9
-
+C = (F – 32) * 5/9 <br>
+Take 5 random records from the past week.
 Hint 1: 'project' operator provides lot more features
 
 [https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
