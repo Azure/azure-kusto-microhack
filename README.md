@@ -2,7 +2,7 @@
 
 Kusto Product Group and Microsoft Global Black Belt team are pleased to present this challenge based, collaboration driven, discover-by-doing learning experience to you. Microhacks are divided into two parts to cater enough time for the participants to understand the key concepts of Azure Data Explorer effectively.
 
-- **Microhack 1: Cluster creation and data ingestion**
+- [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack#microhack-1-cluster-creation-and-data-ingestion-preview)
 This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
 
 - [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack#microhack-2-data-exploration-and-visualisation-with-kql-preview)
