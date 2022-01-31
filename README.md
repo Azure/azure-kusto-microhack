@@ -759,12 +759,11 @@ Hint 1: In the query window, explore the “Share” menu.
 - [Parameters in Azure Data Explorer dashboards | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/dashboard-parameters)
 
 #### Task 2: Prepare management dashboard with PowerBI
-Management users of Contoso are more familiar with PowerBI and thus would like to see aggregate dashboards in PowerBI. Prepare the following query and render the chart in PowerBI:
-- Each offline device and lost tag can mean lack of telemetry on all the shipments that Contoso is managing for its customers. Lack of visibility of this data carries a financial risk for Contoso as it opens potential claims from its customers, reputation loss and impacts future revenues. Management would like to see the dashboard of all lost tags and offline devices by transportation mode on weekly aggregation so that they can estimate the potential financial liabilities that they need to plan in their balance sheet.
+Visualize the outputs of [Task 5]() and [Task 6]() in Challenge 6 in PowerBI using the DirectQuery mode. 
 
 Hint 1: In the query window, explore the “Share” menu.
 
-There are multiple ways to connect ADX and PowerBI depending on the use case. For this Microhack, we will use the Imported Query method. Feel free to explore other methods on the docs.
+There are multiple ways to connect ADX and PowerBI depending on the use case. For this Microhack, we will use the DirectQuery method. Feel free to explore other methods on the docs.
 
-[Visualize data from Azure Data Explorer with a Power BI imported query | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/power-bi-imported-query)
+[Visualize data using the Azure Data Explorer connector for Power BI | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/power-bi-connector)
 
