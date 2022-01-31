@@ -670,7 +670,7 @@ The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
 Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
 
 #### Task 5: Get familiar with the new table and create a piechart
-Write queries that you have written in the previous challenge to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use isnotnull to filter payment_type before rendering the piechart.
+Write queries that you have written in the previous challenge to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use 'tostring' to convert the payment_type to string before rendering the piechart.
 
 #### Task 6: Datetime operations
 Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.  You can use 1, 2, ..., 7 to denote Sunday through Saturday.
