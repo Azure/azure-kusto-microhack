@@ -522,6 +522,10 @@ References:
 
 For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmicrohackcluster.eastus.kusto.windows.net/)
 
+![Screen capture 1](/assets/images/Challenge5-Task0-Pic1.png)
+
+![Screen capture 1](/assets/images/Challenge5-Task0-Pic2.png)
+
 We will use the table LogisticsTelemetryExtended. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
 
 #### Task 1: Explore the table and columns
@@ -585,11 +589,20 @@ Write a query to show a timechart of the **average temperature** over time. Use 
 #### Task 1: Declaring variables
 Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices, over the last 30 days.
 
+You can use the **'let'** statement to set a variable name equal to an expression or a function, or to create views (a virtual tables based on the result-set of another query. Just like a real table, a view contains rows and columns. ).
+let statements are useful for:
+- Breaking up a complex expression into multiple parts, each represented by a variable.
+- Defining constants outside of the query body for readability.
+- Defining a variable once and using it multiple times within a query.
+
 Hint 1: [in operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/in-cs-operator#subquery)
 Hint 2: [let - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement#examples)
 
 #### Task 2: Add more fields to your timechart
 Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 1 minute bins.
+
+Expected result:
+![Screen capture 1](/assets/images/Challenge6-Task2-Pic1.png)
 
 #### Task 3: Some geo-mapping
 Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
@@ -676,6 +689,9 @@ Write queries that you have written in the previous challenge to get familiar wi
 Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.  You can use 1, 2, ..., 7 to denote Sunday through Saturday.
 
 [dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
+  
+Expected result:
+![Screen capture 1](/assets/images/Challenge6-Task6-Pic1.png)
 
 #### Task 7: Multiple series on the same timechart
 Write a query to find out if the tip amount correlates with the number of passengers in the taxi between 1 July 2021 and 31 July 2021. Restrict the number of passengers to maximum of 4.
@@ -685,6 +701,9 @@ Write a query to draw anomaly chart for the tip amount in the month of July 2021
 Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
+Expected result:
+  ![Screen capture 1](/assets/images/Challenge6-Task8-Pic1.png)
+
 #### Task 9: Let's **join** the party
 The taxi rides  table has a field of Payment_type. This is a numeric code signifying how the passenger paid for the trip. There is another table (payment_type_lookup) which contains mapping between the numeric code and the description of the payment type.
 
@@ -692,7 +711,30 @@ To start with, take 10 records and use leftouter join to merge the rows of the t
 
 What is the most common method of payment for rides? Credit cards or cash? What does it look like over time? 
 
+Expected result:
+  ![Screen capture 1](/assets/images/Challenge6-Task9-Pic1.png)
+  
+  
+#### Task 10: Forecasting
+Create a timechart that will show:
+- The number of rides during July 2021
+- A forecast of the number of drive-ins for the first week of August, based on July 2021 (Use the series_decompose_forecast function).
 
+Hint: Start your query with:
+
+  ```
+let min_t = datetime(2021-07-01);
+let max_t = datetime(2021-08-07); // Note that there is no data in the first week of August. We will forecast the data for this week.
+taxi
+| where tpep_dropoff_datetime between (min_t .. max_t) 
+```
+  
+- Make a series of the number of rides, on tpep_pickup_datetime between these dates. Use steps of 30 minutes. 
+- Use series_decompose_forecast with parameters of this series and second parameter of: 24*7 (The second parameter is an Integer specifying the number of points at the end of the series to predict (forecast). These points are excluded from the learning (regression) process. We will use 24*7 additional data points, in order to forecast a week forward).
+- Once a series is created, you can render a timechart.
+
+Expected result:
+  ![Screen capture 1](/assets/images/Challenge6-Task10-Pic1.png)
 
 ### Challenge 7: Visualisation
 
