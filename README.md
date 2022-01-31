@@ -680,7 +680,7 @@ The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
 [make-series](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis) <br>
 [ADX Anomaly Detection](https://docs.microsoft.com/en-us/azure/data-explorer/anomaly-detection#time-series-anomaly-detection)
 
-**FOR THE NEXT TASKS, WE WILL USE 'TAXI' TABLE IN THE SAME DATABASE.**  <br>
+**FOR THE NEXT TASKS, WE WILL USE 'taxi' TABLE IN THE SAME DATABASE.**  <br>
 Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
 
 #### Task 5: Get familiar with the new table and create a piechart
