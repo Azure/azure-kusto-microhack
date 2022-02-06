@@ -614,6 +614,10 @@ Hint 2: render scatterchart with (kind = map)
 Once the map is displayed, you can click on the locations. Note that in order to show more details in the balloon, you need to change the render phrase to include 'series=<TempColumn>'.
 
 [render operator with scatter chart](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
+   
+  Expected result:
+  
+<img src="/assets/images/Challenge6-Task3-map.png" width="400">
 
 #### Task 4: Range
 Range is a tabular operator: it generates a single-column table of values, whose values are start, start + step, ... up to and until stop.
@@ -679,6 +683,10 @@ The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
 
 [make-series](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis) <br>
 [ADX Anomaly Detection](https://docs.microsoft.com/en-us/azure/data-explorer/anomaly-detection#time-series-anomaly-detection)
+  
+  Expected result:
+  
+<img src="/assets/images/Challenge6-Task4-anomalies.png" width="400">
 
 **FOR THE NEXT TASKS, WE WILL USE 'taxi' TABLE IN THE SAME DATABASE.**  <br>
 Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
