@@ -106,7 +106,7 @@ When the deployment is complete, select Go to resource. You will be redirected t
 
 - Fill out the form with the following information.
   
-  ![Screen capture 1](/assets/images/Challenge1-Task2-Pic2.png)
+<img src="/assets/images/Challenge1-Task2-Pic2.png" width="450">
   
   | Setting       | Suggested Value   | Field Description                                                             |
   | ------------- | ----------------- | ----------------------------------------------------------------------------- |
@@ -247,7 +247,7 @@ This is an example of the telemetry JSON (that is part of a bigger JSON that is 
   
   For this microhack, we want to learn how ADX deals with dynamic fields, so we will keep the Nested levels as 1.
   
-  ![Screen capture 1](/assets/images/Challenge2-Task2-Pic3.png)
+  <img src="/assets/images/Challenge2-Task2-Pic3.png" width="450">
   
   ![Screen capture 1](/assets/images/Challenge2-Task2-Pic4.png)
   
@@ -291,7 +291,7 @@ The desired result:
   
   Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
   
-  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic1.png)
+  <img src="/assets/images/Challenge2-Task3-Pic1.png" width="450">
   
   Make sure the cluster and the Database fields are correct. Select **Create new table**
   
