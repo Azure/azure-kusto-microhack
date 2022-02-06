@@ -369,7 +369,7 @@ LogisticsTelemetry
 | summarize count()
  ``` 
  
-Find out how many records startswith "x" 
+Find out how many records have deviceId that startswith "x" 
 
 ```
 LogisticsTelemetry
@@ -377,7 +377,7 @@ LogisticsTelemetry
 | summarize count()
 ```
   
-Find out how many records start with "x" , per device ID (aggregate by device ID)
+Find out how many records have deviceId that startswith "x", per device ID (aggregate by device ID)
 
 ```
 LogisticsTelemetry
@@ -385,7 +385,7 @@ LogisticsTelemetry
 | summarize count() by deviceId
 ```
   
-Find out how many records startswith "x" , per device ID (aggregate by device ID). Render a timechart
+Find out how many records startswith "x", per device ID (aggregate by device ID). Render a timechart
 
 ```
 LogisticsTelemetry
@@ -538,7 +538,7 @@ Write a query to see only the desired columns
 [Project operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
 
 #### Task 3: Filter the output
-Write a query to see only the desired rows. Take arbitrary 10 records from the last 10 minutes.
+Write a query to see only the desired rows. Take arbitrary 10 records from the past 10 minutes.
 
 Hint 1: “ago”
 Hind 2: In case you see 0 records, remember that operators are sequenced by a pipe (|). Data is piped, from one operator to the next. The data is filtered or manipulated at each step and then fed into the following step. By using the ‘Take’ operator, there is no guarantee which records are returned
@@ -546,16 +546,16 @@ Hind 2: In case you see 0 records, remember that operators are sequenced by a pi
 [where operator in Kusto query language - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
 
 #### Task 4: Sorting the results
-Write a query to get the 5 records which have the highest temperature, from the last 3 days. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
+Write a query to get the 5 records which have the highest temperature, from the past 3 days. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
 
 [sort operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sortoperator)
 
 #### Task 5: Reorder, rename, add columns
-Write a query to convert Fahrenheit temperatures to Celsius temperatures. For readability, show them as the 2 left-most columns. You can use the following formula: 
-C = (F – 32) * 5/9 <br>
+Write a query to convert Fahrenheit temperatures to Celsius temperatures. For readability, show the Fahrenheit temperature and the Celsius temperaturesa as the 2 left-most columns. You can use the following formula: 
+C = (F – 32) * (5.0/9.0) <br>
 Take 5 random records from the past week.
 Hint 1: 'project' operator provides lot more features
-
+Hint 2: We used 5.0 and 9.0, rather than 5 and 9 to ensure these numbers were to the 'real' data type (double-precision floating-point format), rather than 'long' (a signed integer, Int64)
 [https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 
 #### Task 6: Total number of records
@@ -564,9 +564,9 @@ Write a query to find out how many records are in the table.
 [count operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/countoperator)
 
 #### Task 7: Aggregations and string operations
-Write a query to find out how many records were created in the last 10 mins. 
-Write another query to find all deviceIds starting with 'x'. 
-Write another query to find out how many records start with "x" , per device ID (aggregated by device ID).
+Write a query to find out how many records have 'enqueuedTime' of the past 10 mins.<br>
+Write another query to find out how many records have deviceId starting with 'x'. <br>
+Write another query to find out how many records have deviceId starting with 'x' , per device ID (aggregated by deviceId).
 
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 [summarize operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
