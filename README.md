@@ -742,7 +742,7 @@ taxi
 ```
   
 - Make a series of the number of rides, on tpep_pickup_datetime between these dates. Use steps of 30 minutes. 
-- Use series_decompose_forecast with parameters of this series and second parameter of: 24*7 (The second parameter is an Integer specifying the number of points at the end of the series to predict (forecast). These points are excluded from the learning (regression) process. We will use 24*7 additional data points, in order to forecast a week forward).
+- Use series_decompose_forecast with parameters of this series and second parameter of: '24\*7' (The second parameter is an Integer specifying the number of points at the end of the series to predict (forecast). These points are excluded from the learning (regression) process. We will use '24\*7` additional data points, in order to forecast a week forward).
 - Once a series is created, you can render a timechart.
 
 Expected result:
