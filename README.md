@@ -202,8 +202,8 @@ For the best user experience, we will use the Azure Data Explorer Web UI (aka: K
 
 KWE lets us easily connect to Azure Event Hub and build a table which is schema based on an event sample data. Go to the “Data” blade. The name of this capability is “One-click ingestion” and it allows you to quicky ingest data.
   
-  ![Screen capture 1](/assets/images/Challenge2-Task1-Pic2.png)
-  
+<img src="/assets/images/Challenge2-Task1-Pic2.png" width="500">
+
   ##### Task 2: Configure the Event hub data connection
   
   The ’Ingest new data’ wizard opens. 
@@ -221,7 +221,7 @@ Set the Source type to “Event Hub”, and specify the event hub details:
 - Compression: None
   Event system properties: leave empty. For this Microhack, we are not going to use them. (System properties store properties (meta data) that are set by the Event Hubs service, at the time the event is enqueued. ADX can embed the selected properties into a new column in your destination table.)
   
-  ![Screen capture 1](/assets/images/Challenge2-Task2-Pic1.png)
+  <img src="/assets/images/Challenge2-Task2-Pic1.png" width="500">
 
   Click on “Next: Schema” 
   
@@ -283,7 +283,7 @@ The desired result:
   Run the query by either selecting the Run button above the query window or selecting Shift+Enter on the keyboard.
   Use the “Manage Data Connection” link (under the “Monitor” section) to go to the portal and review your data connection. The data connection is saved under the Database.
   
-  ![Screen capture 1](/assets/images/Challenge2-Task2-Pic7.png)
+    <img src="/assets/images/Challenge2-Task2-Pic7" width="600">
 
   ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to blob storage
   
