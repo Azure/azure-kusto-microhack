@@ -317,11 +317,11 @@ The desired result:
   Run the query by either selecting the Run button above the query window or selecting Shift+Enter on the keyboard.
   Use the “Manage Data Connection” link (under the “Monitor” section) to go to the portal and review your data connection. The data connection is saved under the Database.
   
-    <img src="/assets/images/Challenge2-Task2-Pic7" width="600">
+<img src="/assets/images/Challenge2-Task2-Pic7" width="600">
 
   ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to blob storage
   
-  This time, we want to ingest data from an Azure Storage account. This storage account has the data on device’s telemetry history from 30th December 2021, device property changes and the commands executed on the device. 
+  This time, we want to ingest logistics telemetry data from an Azure Storage account. This storage account has the data on device’s telemetry history from 30th December 2021, device property changes and the commands executed on the device. 
   
   Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
   
@@ -347,14 +347,10 @@ The desired result:
   
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic7.png)
   
-  Repeat the above steps for ingesting data from the following blob containers: (the proctors will provide this information)
-  - logistics-connectivity-commands
-  - logistics-telemetry
-  - logistics-properties
 
-  Check the table
+  Verify that data was ingested to the table
   ```
-  LogisticsLifecycle
+  LogisticsTelemetry
   | count 
   ```
 
