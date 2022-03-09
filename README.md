@@ -317,7 +317,7 @@ The desired result:
   Run the query by either selecting the Run button above the query window or selecting Shift+Enter on the keyboard.
   Use the “Manage Data Connection” link (under the “Monitor” section) to go to the portal and review your data connection. The data connection is saved under the Database.
   
-<img src="/assets/images/Challenge2-Task2-Pic7" width="600">
+<img src="/assets/images/Challenge2-Task2-Pic7.png" width="600">
 
   ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to blob storage
   
