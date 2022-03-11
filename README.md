@@ -192,7 +192,7 @@ Save the new diagnostic logs settings and metrics.
 
   **Expected Learning Outcomes:**
   - Create continuous ingestion from Azure Event Hub (a managed pipeline) 
-  - Create one-time ingestion from Azure Blob Storage (direct access) to your ADX cluster.
+  - Create one-time ingestion from Azure Blob Storage to your ADX cluster.
 
   ##### Task 1: Use the “One-click” UI (User Interfaces) Create a data connection to Event Hub
 For the best user experience, we will use the Azure Data Explorer Web UI (aka: Kusto web Explorer/KWE). To open it, click on the “Open in Web UI” or just go to [Kusto Web Explorer](https://dataexplorer.azure.com)
@@ -243,15 +243,16 @@ KWE lets us easily connect to Azure Event Hub and build a table which is schema 
   The ’Ingest new data’ wizard opens. 
   
   Destination tab:
-The Cluster and Database fields are auto-populated. Select the ADX cluster and the Database that you created in challenge #1. We haven’t created a table, so use the “Create new table” option. 
+The Cluster and Database fields are auto-populated. Select the ADX cluster and the Database that you created in challenge #1. We haven’t created a table, so use the “Create new table” option. In order to make it easier to query, we recommend using a table name without hyphens, '-'. </br>
+The table will be named LogisticsTelemetry.
   
   Source tab:
 Set the Source type to “Event Hub”, and specify the event hub details:
-- Subscription: Kusto_PM_Experiments
-- Event hub namepsace: adx-microhack-eh-ns
+- Subscription: Your event hub's subscription
+- Event hub namepsace: Your event hub's namepsace
 - Event hub: Your event hub name
-- Data connection name: we used ‘Database1-adx-microhack-eh’. Data connection connects ADX database to Event hub (or to storage account through Event Grid notifications)
-- Consumer group: use your respective consumer group
+- Data connection name: Set a name for your data connection. We used ‘Database1-adx-microhack-eh’. Data connection connects ADX database to Event hub (or to storage account through Event Grid notifications)
+- Consumer group: you can use the default one
 - Compression: None
   Event system properties: leave empty. For this Microhack, we are not going to use them. (System properties store properties (meta data) that are set by the Event Hubs service, at the time the event is enqueued. ADX can embed the selected properties into a new column in your destination table.)
   
@@ -322,7 +323,7 @@ The desired result:
   ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to Azure blob storage
   
   This time, we will ingest data from an Azure Storage account. We will ingest two datasets: </br>
-    1. Logistics telemetry data  </br> 
+    1. Logistics telemetry data. This time, the table will be named LogisticsTelemetryExtended.  </br> 
     2. Data on New York city taxi rides, which will be used for Microhack 2
   
   Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
