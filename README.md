@@ -367,7 +367,7 @@ Repeat the above steps for ingesting data from the New York City container.
   
 **Expected Learning Outcomes:**
 - Write simple queries using Kusto Query Language
-- Create update policies to transform the data at ingestion
+- Create an update policy to transform the data at ingestion time
   
   
 ##### Task 1: Explore the data
@@ -456,7 +456,6 @@ The schema of the new (destination) table would be:
   ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:int, Temp:real)
 ```
 
-
   
   ![Screen capture 1](/assets/images/Challenge3-Task2-Pic1.png)
   
@@ -492,16 +491,16 @@ The schema of the new (destination) table would be:
   
   **Create a function for the update policy**
   
-  ``` 
-.create-or-alter function ManipulateLogisticsTelemetryData()   
-    { 
+``` 
+.create-or-alter function ManipulateLogisticsTelemetryData()
+{ 
      <Complete the query>
-    } 
+} 
 ```
     
   **Create the update policy**
 ``` 
-     <Complete the commandy>
+     <Complete the command>
 ```
 
   
