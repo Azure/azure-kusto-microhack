@@ -122,7 +122,7 @@ Sign in to the Azure portal, select the + Create a resource button in the upper-
 - Region: France Central
 -	Enable performance update (EngineV3): keep the default (enabled)
 -	Compute specification: For a production system, select the specification that best meets your needs (storage optimized or compute optimized). For this Microhack we can use the Dev (No SLA) SKU. </br>
-With various compute SKU options to choose from, you can optimize costs for the performance and hot-cache requirements for your scenario. If you need the most optimal performance for a high query volume, the ideal SKU should be compute-optimized. If you need to query large volumes of data with relatively lower query load, the storage-optimized SKU can help reduce costs and still provide excellent performance. You can read more about ADX’s SKU types [here](https://docs.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku)
+With various compute SKU options to choose from, you can optimize costs for the performance and hot-cache requirements for your scenario. If you need the most optimal performance for a high query volume, the ideal SKU should be compute-optimized. If you need to query large volumes of data with relatively lower query load, the storage-optimized SKU can help reduce costs and still provide excellent performance. You can read more about ADX’s SKU types [here](https://docs.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku).
 - Availability zones: keep the default.
 Move to the next tab (“Scale”). Choose how to scale your resource. Select the “Optimized autoscale” option. It’s always recommended to use this option. Optimized Autoscale is a built-in feature that helps clusters perform their best when demand changes. Optimized Autoscale enables your cluster to be performant and cost effective by adding and removing instances based on demand. For this microhack keep the default values (Minimum instance count == 2, Maximum instance count == 3)
 
@@ -199,7 +199,7 @@ For the best user experience, we will use the Azure Data Explorer Web UI (aka: K
   
   ![Screen capture 1](/assets/images/Challenge2-Task1-Pic1.png)
   
-  The web UI opens. The messages are in a JSON format and they are being sent to an event hub named "adx-microhac-eh-2". This is how a sample message looks like:
+  The web UI opens. The messages are in a JSON format and they are being sent to your event hub. This is how a sample message looks like:
   ```
   {
   "messageProperties": {
@@ -249,7 +249,7 @@ The Cluster and Database fields are auto-populated. Select the ADX cluster and t
 Set the Source type to “Event Hub”, and specify the event hub details:
 - Subscription: Kusto_PM_Experiments
 - Event hub namepsace: adx-microhack-eh-ns
-- Event hub: adx-microhac-eh-2
+- Event hub: Your event hub name
 - Data connection name: we used ‘Database1-adx-microhack-eh’. Data connection connects ADX database to Event hub (or to storage account through Event Grid notifications)
 - Consumer group: use your respective consumer group
 - Compression: None
@@ -319,9 +319,11 @@ The desired result:
   
 <img src="/assets/images/Challenge2-Task2-Pic7.png" width="600">
 
-  ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to blob storage
+  ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to Azure blob storage
   
-  This time, we want to ingest logistics telemetry data from an Azure Storage account. This storage account has the data on device’s telemetry history from 30th December 2021, device property changes and the commands executed on the device. 
+  This time, we will ingest data from an Azure Storage account. We will ingest two datasets: </br>
+    1. Logistics telemetry data  </br> 
+    2. Data on New York city taxi rides, which will be used for Microhack 2
   
   Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
   
@@ -339,7 +341,7 @@ The desired result:
   
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic4.png)
   
-  Once the message **“Queueing blobs is complete”** appears, you can close this page. Then, you can click on the **Event Grid** link under **Continuous Ingestion**.
+  Wait for the ingestion to be completed. For production modes, you could use Azure Event Grid for continuous Blob ingestion. The **Event Grid** link under **Continuous Ingestion** will create the Event Grid resource for that. We won't use this option in this Microhack.
 
   ![Screen capture 1](/assets/images/Challenge2-Task3-Pic5.png)
   
