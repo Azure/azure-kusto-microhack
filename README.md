@@ -771,11 +771,28 @@ Expected result:
   
   ![Screen capture 1](/assets/images/Challenge6-Task8-Pic1.png)
 
-#### Task 9: Let's **join** the party
-The taxi rides  table has a field of Payment_type. This is a numeric code signifying how the passenger paid for the trip. There is another table (payment_type_lookup) which contains mapping between the numeric code and the description of the payment type.
+#### Task 9: External data
 
-To start with, take 10 records and use leftouter join to merge the rows of the two tables to form a new table, by matching values of the payment code column.
+The externaldata operator returns a table whose schema is defined in the query itself, and whose data is directly read from an external storage artifact, such as a blob in Azure Blob Storage, a file in Azure Data Lake Storage, or even a file in GitHub repository. Since the data is not being ingested into ADX, it cannot be indexed, compressed, or stored in the hot cache. For best performance, we recommend that data be ingested. External data can, however, be used in sporadic cases, where you do not want to ingest the data.</br>
+Access this csv file: https://raw.githubusercontent.com/Azure/azure-kusto-microhack/main/assets/ExternalData/payment_type_lookup.csv.
+The file represents the mapping between the numeric code of the payment type and its description </br>
+Here is how we can use KQL to handle this external data:
 
+```
+let payment_type_lookup_data = (externaldata (code:string,description:string)
+[ @"https://raw.githubusercontent.com/Azure/azure-kusto-microhack/main/assets/ExternalData/payment_type_lookup.csv" ]
+with(format="csv", ignoreFirstRecord=true))
+| project tolong(code), description;
+payment_type_lookup_data
+```
+  
+[externaldata operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuredataexplorer)
+  
+#### Task 10: Let's **join** the party
+The taxi rides table has a field of Payment_type. This is a numeric code signifying how the passenger paid for the trip. Use the payment_type_lookup, to join between the 
+payment code and the description. Use a leftouter join to merge the rows of the two tables to form a new table, by matching values of the payment code column.
+
+Render a time chart of the number of records, per payment type over time, with 1 day bins, based on data between 2021-07-01 and 2021-07-31. 
 What is the most common method of payment for rides? Credit cards or cash? What does it look like over time? 
 
 Expected result:
@@ -783,7 +800,7 @@ Expected result:
   ![Screen capture 1](/assets/images/Challenge6-Task9-Pic1.png)
   
   
-#### Task 10: Forecasting
+#### Task 11: Forecasting
 Create a timechart that will show:
 - The number of rides during July 2021
 - A forecast of the number of drive-ins for the first week of August, based on July 2021 (Use the series_decompose_forecast function).
