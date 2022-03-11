@@ -797,7 +797,7 @@ What is the most common method of payment for rides? Credit cards or cash? What 
 
 Expected result:
   
- <img src="/assets/images/Challenge6-Task9-Pic1.png" width="480">
+ <img src="/assets/images/Challenge6-Task9-Pic1.png" width="580">
   
 #### Task 11: Forecasting
 Create a timechart that will show:
