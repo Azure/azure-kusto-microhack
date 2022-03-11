@@ -571,6 +571,7 @@ References:
 - [SQL to Kusto cheat sheet](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet)
 - [KQL cheat sheets](https://github.com/marcusbakker/KQL/blob/master/kql_cheat_sheet.pdf)
 
+<!--
 #### Task 0: Connect to the cluster
 
 For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmicrohackcluster.eastus.kusto.windows.net/)
@@ -579,7 +580,8 @@ For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmi
 
 ![Screen capture 1](/assets/images/Challenge5-Task0-Pic2.png)
 
-We will use the table LogisticsTelemetryHistorical. This table is based on  LogisticsTelemetry.
+-->
+We will use the table LogisticsTelemetryHistorical
 
 #### Task 1: Explore the table and columns
 Write a query to learn the table, its columns, data types using any random 10 rows
@@ -599,7 +601,7 @@ Hind 2: In case you see 0 records, remember that operators are sequenced by a pi
 [where operator in Kusto query language - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
 
 #### Task 4: Sorting the results
-Write a query to get the 5 records which have the highest temperature, from the past 3 days. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
+Write a query to get the 5 records which have the highest temperature. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
 
 [sort operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sortoperator)
 
@@ -641,7 +643,7 @@ Write a query to show a timechart of the **average temperature** over time. Use 
 ### Challenge 6: Going more advanced with KQL
 
 #### Task 1: Declaring variables
-Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices, over the last 30 days.
+Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices.
 
 You can use the **'let'** statement to set a variable name equal to an expression or a function, or to create views (a virtual tables based on the result-set of another query. Just like a real table, a view contains rows and columns. ).
 let statements are useful for:
