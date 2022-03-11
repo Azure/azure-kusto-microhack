@@ -577,7 +577,7 @@ For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmi
 
 ![Screen capture 1](/assets/images/Challenge5-Task0-Pic2.png)
 
-We will use the table LogisticsTelemetryHistorical. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
+We will use the table LogisticsTelemetryHistorical. This table is based on  LogisticsTelemetry.
 
 #### Task 1: Explore the table and columns
 Write a query to learn the table, its columns, data types using any random 10 rows
