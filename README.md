@@ -774,7 +774,7 @@ Expected result:
 #### Task 9: External data
 
 The externaldata operator returns a table whose schema is defined in the query itself, and whose data is directly read from an external storage artifact, such as a blob in Azure Blob Storage, a file in Azure Data Lake Storage, or even a file in GitHub repository. Since the data is not being ingested into ADX, it cannot be indexed, compressed, or stored in the hot cache. For best performance, we recommend that data be ingested. External data can, however, be used in sporadic cases, where you do not want to ingest the data.</br>
-Access this csv file: https://raw.githubusercontent.com/Azure/azure-kusto-microhack/main/assets/ExternalData/payment_type_lookup.csv.
+Take a look at this csv file: https://raw.githubusercontent.com/Azure/azure-kusto-microhack/main/assets/ExternalData/payment_type_lookup.csv.
 The file represents the mapping between the numeric code of the payment type and its description </br>
 Here is how we can use KQL to handle this external data:
 
