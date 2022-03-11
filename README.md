@@ -446,12 +446,17 @@ LogisticsTelemetry
 
   ##### Task 2: Create an update policy
   
-  By taking 10 records, we can see that the telemetry column has a JSON structure. In this task we will use update policy to manipulate the raw data in the LogisticsTelemetry table (the source table) and transform the JSON data into separate columns in a new table that we’ll create (“target table”).
-We want to create a new table, with a calculated column (we will call it: NumOfTagsCalculated) that contains the following value: telemetry.TotalTags + telemetry.TotalTags - telemetry.LostTags.
-The schema of the new table would be:
+By taking 10 records, we can see that the telemetry column has a JSON structure. In this task we will use an 'update policy' to manipulate the raw data in the LogisticsTelemetry table (the source table) and transform the JSON data into separate columns, that will be ingested to a new table that we’ll create (“target table”).</br>
+Update policy is like an internal ETL. It can help you manipulate or enrich the data as it gets ingested into the source table (e.g. extracting KSON into seperate columns, create a new caculated column, join the new records with a static dimension table which is already in your database, etc). For these cases, using an update policy is a very common and powerful practice. </br>
+Each time records get ingested into the source table, the update policy's qeury (which we'll define in the update policy) will run on them (and only on newly ingested records - other existing records in the source table aren’t visible to the update policy when it runs), and the results of the query will be appended to the target table. </br>
+We want to create a new table, with a calculated column (we will call it: NumOfTagsCalculated) that contains the following value: telemetry.TotalTags + telemetry.TotalTags - telemetry.LostTags. </br>
+
+The schema of the new (destination) table would be:
 ```
   ( deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:int, Temp:real)
 ```
+
+
   
   ![Screen capture 1](/assets/images/Challenge3-Task2-Pic1.png)
   
@@ -481,10 +486,23 @@ The schema of the new table would be:
   
   **Build the target table**
   
+``` 
+.create table LogisticsTelemetryManipulated  (deviceId:string, enqueuedTime:datetime, NumOfTagsCalculated:long, Temp:real) 
+```
+  
   **Create a function for the update policy**
+  
+  ``` 
+.create-or-alter function ManipulateLogisticsTelemetryData()   
+    { 
+     <Complete the query>
+    } 
+```
     
   **Create the update policy**
-
+``` 
+     <Complete the commandy>
+```
 
   
 **Relevant docs for this challenge:**
