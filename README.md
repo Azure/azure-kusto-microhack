@@ -323,7 +323,7 @@ The desired result:
   ##### Task 3: Use the “One-click” UI (User Interfaces) to create a data connection to Azure blob storage
   
   This time, we will ingest data from an Azure Storage account. We will ingest two datasets: </br>
-    1. Logistics telemetry data. This time, the table will be named LogisticsTelemetryExtended.  </br> 
+    1. Logistics telemetry data. This time, the table will be named LogisticsTelemetryHistorical.  </br> 
     2. Data on New York City taxi rides, which will be used for Microhack 2
   
   Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
@@ -352,7 +352,7 @@ The desired result:
   
   Verify that data was ingested to the table
   ```
-  LogisticsTelemetryExtended
+  LogisticsTelemetryHistorical
   | count 
   ```
 
@@ -557,7 +557,7 @@ It's like a funnel, where you start out with an entire data table. Each time the
 Let's look at an example query:
 
 ```
-LogisticsTelemetryExtended
+LogisticsTelemetryHistorical
 | where enqueuedTime > ago(7d) 
 | where messageSource == "telemetry"
 | count 
@@ -577,7 +577,7 @@ For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmi
 
 ![Screen capture 1](/assets/images/Challenge5-Task0-Pic2.png)
 
-We will use the table LogisticsTelemetryExtended. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
+We will use the table LogisticsTelemetryHistorical. This table is based on  LogisticsTelemetry (we used an update policy to break the telemetry JSON column into independent columns. The update policy script can be found here <link>)
 
 #### Task 1: Explore the table and columns
 Write a query to learn the table, its columns, data types using any random 10 rows
@@ -720,9 +720,9 @@ For this task, we will provide more instructions:
 To generate these series, start with:
 ```
 let min_t = ago(3d);
-let max_t = (toscalar(LogisticsTelemetryExtended | summarize max(enqueuedTime)));
+let max_t = (toscalar(LogisticsTelemetryHistorical | summarize max(enqueuedTime)));
 let step_interval = 10m;
-LogisticsTelemetryExtended
+LogisticsTelemetryHistorical
 | make-series avg_shock_series=avg(Shock) on (enqueuedTime) from (min_t) to (max_t) step step_interval 
 ```
 Now, we will use this avg_shock_series and run series_decompose_anomalies.
@@ -805,7 +805,7 @@ Expected result:
 
 #### Task 1: Prepare interactive dashboards with ADX Dashboard
 
-Using Dashboard feature of Azure Data Explorer, build a dashboard using outputs of any 5 queries (on LogisticsTelemetryExtended table) that you have created in the previous challenges with the following improvements:
+Using Dashboard feature of Azure Data Explorer, build a dashboard using outputs of any 5 queries (on LogisticsTelemetryHistorical table) that you have created in the previous challenges with the following improvements:
   - Add filter on the dashboard so that the user can choose the timespan
   - Add filter on the dashboard so that the user can choose the transportation mode
 
