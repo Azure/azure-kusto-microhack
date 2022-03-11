@@ -405,7 +405,7 @@ For the next tasks, connect to the cluster [ADX Microhack Cluster](https://adxmi
 ![Screen capture 1](/assets/images/Challenge5-Task0-Pic2.png)
 
 -->
-We will use the table LogisticsTelemetryHistorical
+For the next tasks, we will use the table LogisticsTelemetryHistorical
 
 #### Task 1: Explore the table and columns
 Write a query to learn the table, its columns, data types using any random 10 rows
@@ -436,7 +436,10 @@ Take 5 random records from the past week.
 Hint 1: 'project' operator provides lot more features
 Hint 2: We used 5.0 and 9.0, rather than 5 and 9 to ensure these numbers were to the 'real' data type (double-precision floating-point format), rather than 'long' (a signed integer, Int64)
 
-[https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
+[extend operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
+[project-rename operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
+[project-reorder operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectreorderoperator)
+
 
 #### Task 6: Total number of records
 Write a query to find out how many records are in the table. 
@@ -463,7 +466,8 @@ Write a query to show a timechart of the number of records over time. Use 1 day 
 
 #### Task 10: Aggregations with time series visualisations
 Write a query to show a timechart of the **average temperature** over time. Use 30 minute bins (buckets) Each point on the timechart represent the average temperature in that 30 min period.
-
+Hint: summarize avg(Temp) by bin(enqueuedTime, 1d) 
+[summarize operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
 #### Challenge 4: Check stats and key metrics of the cluster
     
@@ -501,7 +505,8 @@ Each challenge has a set of tasks that need to be completed in order to move on 
 - Write simple queries using Kusto Query Language
 - Create an update policy to transform the data at ingestion time
   
-  
+For the next tasks, we will use the LogisticsTelemetry table (which obtains data from the Event Hub).
+
 ##### Task 1: Explore the data
   
   Kusto queries can be used to filter data and return specific information. Recall that you've looked at arbitrary rows of data to get a sense of its structure. Now, you'll learn how to choose specific rows of the data. The where operator filters results that satisfy a certain condition.
