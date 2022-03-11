@@ -435,11 +435,13 @@ LogisticsTelemetry
 | summarize count() by deviceId
 | render piechart 
 ```
+KQL makes it simple to access fields in JSON and treat them like an independent column:
 
 ```
 LogisticsTelemetry
+// | where enqueuedTime > ago(10d) 
 | extend h = telemetry.Humidity
-| summarize avg(toint(h)) by bin(enqueuedTime, 1m)
+| summarize avg(toint(h)) by bin(enqueuedTime, 1h)
 | render timechart 
 ```
 
