@@ -332,7 +332,7 @@ The desired result:
   
   Make sure the cluster and the Database fields are correct. Select **Create new table**
   
-  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic2.png)
+  <img src="/assets/images/Challenge2-Task3-Pic2.png" width="450">
   
   In the **Link to source**, paste the SAS URL of the blob storage (the proctors will provide this information). Then select one of the **Schema defining file** (all the files in that blob storage have the same schema) and click **Next**
   
