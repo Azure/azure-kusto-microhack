@@ -324,7 +324,7 @@ The desired result:
   
   This time, we will ingest data from an Azure Storage account. We will ingest two datasets: </br>
     1. Logistics telemetry data. This time, the table will be named LogisticsTelemetryExtended.  </br> 
-    2. Data on New York city taxi rides, which will be used for Microhack 2
+    2. Data on New York City taxi rides, which will be used for Microhack 2
   
   Go again to the “Data management” tab, and select the **Ingest from blob container** option under **Continuous ingestion**
   
@@ -352,9 +352,11 @@ The desired result:
   
   Verify that data was ingested to the table
   ```
-  LogisticsTelemetry
+  LogisticsTelemetryExtended
   | count 
   ```
+
+Repeat the above steps for ingesting data from the New York City container.
 
   **Relevant docs for this challenge:**
   - [Azure Data Explorer data ingestion overview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-overview)
