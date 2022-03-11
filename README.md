@@ -343,13 +343,12 @@ The desired result:
   
   Wait for the ingestion to be completed. For production modes, you could use Azure Event Grid for continuous Blob ingestion. The **Event Grid** link under **Continuous Ingestion** will create the Event Grid resource for that. We won't use this option in this Microhack.
 
-  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic5.png)
+   <img src="/assets/images/Challenge2-Task3-Pic5.png" width="450">
   
-  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic6.png)
+  <!--- Event Grid Continuous ingestion images 
+![Screen capture 1](/assets/images/Challenge2-Task3-Pic6.png)
+ ![Screen capture 1](/assets/images/Challenge2-Task3-Pic7.png)  --->
   
-  ![Screen capture 1](/assets/images/Challenge2-Task3-Pic7.png)
-  
-
   Verify that data was ingested to the table
   ```
   LogisticsTelemetry
