@@ -532,7 +532,7 @@ Write a query to find out how many records startswith "x" , per device ID (aggre
 [render operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
 
 #### Task 10: Create bins and visualize time series 
-Write a query to show a timechart of the number of records over time. Use 1 day bins (buckets). Each point on the timechart represent the number of devices on that day.
+Write a query to show a timechart of the number of records over time. Use 10 minute bins (buckets). Each point on the timechart represent the number of devices on that bucket.
 
 [bin() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/binfunction)
 
