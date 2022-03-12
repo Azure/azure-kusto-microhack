@@ -478,7 +478,8 @@ LogisticsTelemetry
 For the following tasks, we will use the table LogisticsTelemetryHistorical.
 
 #### Task 2: Explore the table and columns
-Write a query to learn the table, its columns, data types using any random 10 rows
+Write a query to display the schema of the table.
+[getschema operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/getschemaoperator)
 
 #### Task 3: Keep the columns of your interest
 Write a query to see only the desired columns
