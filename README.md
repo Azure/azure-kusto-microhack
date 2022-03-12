@@ -243,7 +243,7 @@ KWE lets us easily connect to Azure Event Hub and build a table which is schema 
   The ’Ingest new data’ wizard opens. 
   
   Destination tab:
-The Cluster and Database fields are auto-populated. Select the ADX cluster and the Database that you created in challenge #1. We haven’t created a table, so use the “Create new table” option. In order to make it easier to query, we recommend using a table name without hyphens, '-'. </br>
+The Cluster and Database fields are auto-populated. Select the ADX cluster and the Database that you created in challenge 1. We haven’t created a table, so use the “Create new table” option. In order to make it easier to query, we recommend using a table name without hyphens, '-'. </br>
 The table will be named LogisticsTelemetry.
   
   Source tab:
