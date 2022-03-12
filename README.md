@@ -478,18 +478,18 @@ LogisticsTelemetry
 For the following tasks, we will use the table LogisticsTelemetryHistorical.
 
 #### Task 2: Explore the table and columns
-Write a query to display the schema of the table.
+Write a query to get the schema of the table.
 
 [getschema operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/getschemaoperator)
 
 #### Task 3: Keep the columns of your interest
-Write a query to see only the desired columns
+Write a query to get only specific desired columns: deviceId, enqueuedTime, Temp. Take arbitrary 10 records.
 
 [project-away operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
 [Project operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
 
 #### Task 4: Filter the output
-Write a query to see only the desired rows. Take arbitrary 10 records from the past 10 minutes.
+Write a query to get only specific desired columns: deviceId, enqueuedTime, Temp. Take arbitrary 10 records from the past 90 days.
 
 Hint 1: “ago”
 Hind 2: In case you see 0 records, remember that operators are sequenced by a pipe (|). Data is piped, from one operator to the next. The data is filtered or manipulated at each step and then fed into the following step. By using the ‘Take’ operator, there is no guarantee which records are returned
@@ -497,7 +497,7 @@ Hind 2: In case you see 0 records, remember that operators are sequenced by a pi
 [where operator in Kusto query language - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
 
 #### Task 5: Sorting the results
-Write a query to get the 5 records which have the highest temperature. Write another query get the 5 records which have the lowest temperature, from the last 20 minutes.
+Write a query to get the 5 records which have the highest temperature. Write another query get the 5 records which have the lowest temperature.
 
 [sort operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sortoperator)
 
