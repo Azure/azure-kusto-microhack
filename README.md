@@ -523,6 +523,7 @@ Write a query to find out how many records have deviceId starting with 'x'. <br>
 Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).
 
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
+
 [summarize operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
 #### Task 9: Render a chart
