@@ -659,10 +659,11 @@ let statements are useful for:
 - Defining a variable once and using it multiple times within a query.
 
 Hint 1: [in operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/in-cs-operator#subquery)
+
 Hint 2: [let - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement#examples)
 
 #### Task 2: Add more fields to your timechart
-Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 1 minute bins.
+Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 10 minute bins.
 
 Expected result:
 
@@ -671,7 +672,7 @@ Expected result:
 #### Task 3: Some geo-mapping
 Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
 <br>
-Hint 1: 'top' operator
+Hint 1: 'top' operator </br>
 Hint 2: render scatterchart with (kind = map)
 
 Once the map is displayed, you can click on the locations. Note that in order to show more details in the balloon, you need to change the render phrase to include 'series=<TempColumn>'.
