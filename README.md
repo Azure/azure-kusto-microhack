@@ -539,7 +539,7 @@ Write a query to show a timechart of the number of records over time. Use 10 min
 
 #### Task 11: Aggregations with time series visualisations
 Write a query to show a timechart of the **average temperature** over time. Use 30 minute bins (buckets) Each point on the timechart represent the average temperature in that 30 min period.
-Hint: summarize avg(Temp) by bin(enqueuedTime, 1d) 
+Hint: summarize avg(Temp) by bin(enqueuedTime, 30m) 
 [summarize operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
 #### Challenge 4: Check stats and key metrics of the cluster
