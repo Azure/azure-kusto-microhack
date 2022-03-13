@@ -478,10 +478,9 @@ LogisticsTelemetry
 For the following tasks, we will use the table LogisticsTelemetryHistorical.
 
 #### Task 2: Explore the table and columns
-Write a query to get the schema of the table.
+Write a query to get the schema of the table. 
 
-Expected result:
-  
+</br>Expected result:  
 <img src="/assets/images/Schema.png" width="400">
 
 [getschema operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/getschemaoperator)
