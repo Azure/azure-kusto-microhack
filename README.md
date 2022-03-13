@@ -532,7 +532,7 @@ Write a query to find out how many records are in the table.
 Write a query to find out how many records have deviceId starting with 'x'. <br>
 Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).</br>
 Expected result for the second query:</br>
-<img src="/assets/images/count_by.png" width="350">
+<img src="/assets/images/count_by.png" width="250">
 
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 
