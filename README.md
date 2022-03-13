@@ -516,7 +516,7 @@ Hint 1: 'project' operator provides lot more features
 Hint 2: We used 5.0 and 9.0, rather than 5 and 9 to ensure these numbers were to the 'real' data type (double-precision floating-point format), rather than 'long' (a signed integer, Int64)
 
 Expected result:</br>
-<img src="/assets/images/temp.png" width="400">
+<img src="/assets/images/temp.png" width="500">
 
 [extend operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 [project-rename operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
@@ -532,7 +532,7 @@ Write a query to find out how many records are in the table.
 Write a query to find out how many records have deviceId starting with 'x'. <br>
 Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).</br>
 Expected result for the second query:</br>
-<img src="/assets/images/count_by.png" width="200">
+<img src="/assets/images/count_by.png" width="400">
 
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 
@@ -542,7 +542,7 @@ Expected result for the second query:</br>
 Write a query to find out how many records startswith "x" , per device ID (aggregated by device ID) and render a piechart.
 
 Expected result:</br>
-<img src="/assets/images/pie.png" width="400">
+<img src="/assets/images/pie.png" width="500">
 
 [render operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
 
@@ -849,7 +849,7 @@ taxi
 - Use series_decompose_forecast with parameters of this series and second parameter of: '24\*7' (The second parameter is an Integer specifying the number of points at the end of the series to predict (forecast). These points are excluded from the learning (regression) process. We will use '24\*7` additional data points, in order to forecast a week forward).
 - Once a series is created, you can render a timechart.
 
-Expected result:
+Expected result: </br>
 <img src="/assets/images/forecast.png" width="600">
 
 ### Challenge 7: Visualisation
