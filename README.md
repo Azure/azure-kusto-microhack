@@ -480,10 +480,18 @@ For the following tasks, we will use the table LogisticsTelemetryHistorical.
 #### Task 2: Explore the table and columns
 Write a query to get the schema of the table.
 
+Expected result:
+  
+<img src="/assets/images/Schema.png" width="400">
+
 [getschema operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/getschemaoperator)
 
 #### Task 3: Keep the columns of your interest
 Write a query to get only specific desired columns: deviceId, enqueuedTime, Temp. Take arbitrary 10 records.
+
+Expected result:
+  
+<img src="/assets/images/project.png" width="400">
 
 [project-away operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
 
