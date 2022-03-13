@@ -752,8 +752,10 @@ The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
   
 <img src="/assets/images/Challenge6-Task4-anomalies.png" width="400">
 </br></br>
+
 **FOR THE NEXT TASKS, WE WILL USE the NYC TAXI DATA.**  <br>
-If the proctore hasn't provided the data set, use this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
+
+If the proctor hasn't provided the data set, use this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
 
 #### Task 5: Get familiar with the new table and create a piechart
 Write some queries to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use 'tostring' to convert the payment_type to string before rendering the piechart.
