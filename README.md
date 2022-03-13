@@ -725,13 +725,13 @@ This is how time series looks like:
 The summarize operator does not add "null bins" — rows for time bin values for which there's no corresponding row in the table. It's a good idea to "pad" the table with those bins. Advanced built in ML capabilities like anomaly detection need the data points to be consistently measured at equally spaced intervals. The **make-series** can create such a “complete” series.
 
 #### Task 4: Anomaly detection
-Write a query to create an anomaly chart of the average shock, in the last 3 days.
+Write a query to create an anomaly chart of the average shock.
 
 For this task, we will provide more instructions:
 
 To generate these series, start with:
 ```
-let min_t = ago(3d);
+let min_t = (toscalar(LogisticsTelemetryHistorical | summarize min(enqueuedTime)));
 let max_t = (toscalar(LogisticsTelemetryHistorical | summarize max(enqueuedTime)));
 let step_interval = 10m;
 LogisticsTelemetryHistorical
@@ -751,12 +751,12 @@ The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
   Expected result:
   
 <img src="/assets/images/Challenge6-Task4-anomalies.png" width="400">
-
-**FOR THE NEXT TASKS, WE WILL USE 'taxi' TABLE IN THE SAME DATABASE.**  <br>
-Please follow this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
+</br></br>
+**FOR THE NEXT TASKS, WE WILL USE the NYC TAXI DATA.**  <br>
+If the proctore hasn't provided the data set, use this Azure Open Dataset on [NYC Taxi Rides](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) to ingest this data into your ADX cluster.
 
 #### Task 5: Get familiar with the new table and create a piechart
-Write queries that you have written in the previous challenge to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use 'tostring' to convert the payment_type to string before rendering the piechart.
+Write some queries to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use 'tostring' to convert the payment_type to string before rendering the piechart.
 
 #### Task 6: Datetime operations
 Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.  You can use 1, 2, ..., 7 to denote Sunday through Saturday.
