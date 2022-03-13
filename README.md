@@ -480,7 +480,7 @@ For the following tasks, we will use the table LogisticsTelemetryHistorical.
 #### Task 2: Explore the table and columns
 Write a query to get the schema of the table. 
 
-</br>Expected result:  
+Expected result:  
 <img src="/assets/images/Schema.png" width="400">
 
 [getschema operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/getschemaoperator)
@@ -489,7 +489,6 @@ Write a query to get the schema of the table.
 Write a query to get only specific desired columns: deviceId, enqueuedTime, Temp. Take arbitrary 10 records.
 
 Expected result:
-  
 <img src="/assets/images/project.png" width="400">
 
 [project-away operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
@@ -516,6 +515,9 @@ Take 5 random records from the past week.
 Hint 1: 'project' operator provides lot more features
 Hint 2: We used 5.0 and 9.0, rather than 5 and 9 to ensure these numbers were to the 'real' data type (double-precision floating-point format), rather than 'long' (a signed integer, Int64)
 
+Expected result:
+<img src="/assets/images/temp.png" width="400">
+
 [extend operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 [project-rename operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
 [project-reorder operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectreorderoperator)
@@ -529,7 +531,8 @@ Write a query to find out how many records are in the table.
 #### Task 8: Aggregations and string operations
 Write a query to find out how many records have deviceId starting with 'x'. <br>
 Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).
-
+Expected result for the second query:
+<img src="/assets/images/count_by.png" width="400">
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 
 [summarize operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
@@ -537,16 +540,25 @@ Write another query to find out how many records have deviceId starting with 'x'
 #### Task 9: Render a chart
 Write a query to find out how many records startswith "x" , per device ID (aggregated by device ID) and render a piechart.
 
+Expected result:
+<img src="/assets/images/pie.png" width="400">
 [render operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
 
 #### Task 10: Create bins and visualize time series 
 Write a query to show a timechart of the number of records over time. Use 10 minute bins (buckets). Each point on the timechart represent the number of devices on that bucket.
+
+Expected result:
+<img src="/assets/images/chart.png" width="400">
 
 [bin() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/binfunction)
 
 #### Task 11: Aggregations with time series visualizations
 Write a query to show a timechart of the **average temperature** over time. Use 30 minute bins (buckets) Each point on the timechart represent the average temperature in that 30 min period.
 Hint: summarize avg(Temp) by bin(enqueuedTime, 30m) 
+
+Expected result:
+<img src="/assets/images/timeseries.png" width="400">
+
 [summarize operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
 #### Challenge 4: Check stats and key metrics of the cluster
@@ -773,11 +785,13 @@ Write a query to create a columnchart which will show the number of rides for ea
 [dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
   
 Expected result:
-  
-![Screen capture 1](/assets/images/Challenge6-Task6-Pic1.png)
+<img src="/assets/images/taxi-days.png" width="400">
 
 #### Task 7: Multiple series on the same timechart
 Write a query to find out if the tip amount correlates with the number of passengers in the taxi between 1 July 2021 and 31 July 2021. Restrict the number of passengers to maximum of 4.
+
+Expected result:
+<img src="/assets/images/chart-4.png" width="400">
 
 #### Task 8: Detect anomalies in the tip amount
 Write a query to draw anomaly chart for the tip amount in the month of July 2021. <br>
@@ -785,8 +799,7 @@ Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
 Expected result:
-  
-  ![Screen capture 1](/assets/images/Challenge6-Task8-Pic1.png)
+<img src="/assets/images/tip_anomaly" width="400">
 
 #### Task 9: External data
 
@@ -835,8 +848,7 @@ taxi
 - Once a series is created, you can render a timechart.
 
 Expected result:
-  
-  ![Screen capture 1](/assets/images/Challenge6-Task10-Pic1.png)
+<img src="/assets/images/forecast" width="400">
 
 ### Challenge 7: Visualisation
 
