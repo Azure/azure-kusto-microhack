@@ -488,7 +488,7 @@ Expected result:
 #### Task 3: Keep the columns of your interest
 Write a query to get only specific desired columns: deviceId, enqueuedTime, Temp. Take arbitrary 10 records.
 
-Expected result:
+Expected result:</br>
 <img src="/assets/images/project.png" width="400">
 
 [project-away operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
@@ -515,7 +515,7 @@ Take 5 random records from the past week.
 Hint 1: 'project' operator provides lot more features
 Hint 2: We used 5.0 and 9.0, rather than 5 and 9 to ensure these numbers were to the 'real' data type (double-precision floating-point format), rather than 'long' (a signed integer, Int64)
 
-Expected result:
+Expected result:</br>
 <img src="/assets/images/temp.png" width="400">
 
 [extend operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
@@ -530,9 +530,9 @@ Write a query to find out how many records are in the table.
 
 #### Task 8: Aggregations and string operations
 Write a query to find out how many records have deviceId starting with 'x'. <br>
-Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).
-Expected result for the second query:
-<img src="/assets/images/count_by.png" width="400">
+Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).</br>
+Expected result for the second query:</br>
+<img src="/assets/images/count_by.png" width="200">
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 
 [summarize operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
@@ -540,15 +540,15 @@ Expected result for the second query:
 #### Task 9: Render a chart
 Write a query to find out how many records startswith "x" , per device ID (aggregated by device ID) and render a piechart.
 
-Expected result:
+Expected result:</br>
 <img src="/assets/images/pie.png" width="400">
 [render operator - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer)
 
 #### Task 10: Create bins and visualize time series 
 Write a query to show a timechart of the number of records over time. Use 10 minute bins (buckets). Each point on the timechart represent the number of devices on that bucket.
 
-Expected result:
-<img src="/assets/images/chart.png" width="400">
+Expected result:</br>
+<img src="/assets/images/chart.png" width="500">
 
 [bin() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/binfunction)
 
@@ -556,8 +556,8 @@ Expected result:
 Write a query to show a timechart of the **average temperature** over time. Use 30 minute bins (buckets) Each point on the timechart represent the average temperature in that 30 min period.
 Hint: summarize avg(Temp) by bin(enqueuedTime, 30m) 
 
-Expected result:
-<img src="/assets/images/timeseries.png" width="400">
+Expected result:</br>
+<img src="/assets/images/timeseries.png" width="500">
 
 [summarize operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
@@ -682,11 +682,11 @@ Hint 1: [in operator - Azure Data Explorer | Microsoft Docs](https://docs.micros
 Hint 2: [let - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement#examples)
 
 #### Task 2: Add more fields to your timechart
-Write a query to show a timechart of the number of records from the last 1 hour, by TransportationMode. Use 10 minute bins.
+Write a query to show a timechart of the number of records, by TransportationMode. Use 10 minute bins.
 
 Expected result:
 
-![Screen capture 1](/assets/images/Challenge6-Task2-Pic1.png)
+<img src="/assets/images/chart-4.png" width="400">
 
 #### Task 3: Some geo-mapping
 Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
@@ -784,13 +784,13 @@ Write a query to create a columnchart which will show the number of rides for ea
 
 [dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
   
-Expected result:
+Expected result:</br>
 <img src="/assets/images/taxi-days.png" width="400">
 
 #### Task 7: Multiple series on the same timechart
 Write a query to find out if the tip amount correlates with the number of passengers in the taxi between 1 July 2021 and 31 July 2021. Restrict the number of passengers to maximum of 4.
 
-Expected result:
+Expected result:</br>
 <img src="/assets/images/chart-4.png" width="400">
 
 #### Task 8: Detect anomalies in the tip amount
@@ -798,8 +798,8 @@ Write a query to draw anomaly chart for the tip amount in the month of July 2021
 Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
-Expected result:
-<img src="/assets/images/tip_anomaly" width="400">
+Expected result:</br>
+<img src="/assets/images/tip_anomaly.png" width="400">
 
 #### Task 9: External data
 
@@ -848,7 +848,7 @@ taxi
 - Once a series is created, you can render a timechart.
 
 Expected result:
-<img src="/assets/images/forecast" width="400">
+<img src="/assets/images/forecast.png" width="400">
 
 ### Challenge 7: Visualisation
 
