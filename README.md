@@ -516,7 +516,7 @@ Hint 1: 'project' operator provides lot more features
 Hint 2: We used 5.0 and 9.0, rather than 5 and 9 to ensure these numbers were to the 'real' data type (double-precision floating-point format), rather than 'long' (a signed integer, Int64)
 
 Expected result:</br>
-<img src="/assets/images/temp.png" width="500">
+<img src="/assets/images/temp.png" width="600">
 
 [extend operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 [project-rename operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
@@ -532,7 +532,7 @@ Write a query to find out how many records are in the table.
 Write a query to find out how many records have deviceId starting with 'x'. <br>
 Write another query to find out how many records have deviceId starting with 'x', per device ID (aggregated by deviceId).</br>
 Expected result for the second query:</br>
-<img src="/assets/images/count_by.png" width="400">
+<img src="/assets/images/count_by.png" width="350">
 
 [String operators - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators)
 
@@ -550,7 +550,7 @@ Expected result:</br>
 Write a query to show a timechart of the number of records over time. Use 10 minute bins (buckets). Each point on the timechart represent the number of devices on that bucket.
 
 Expected result:</br>
-<img src="/assets/images/chart.png" width="600">
+<img src="/assets/images/chart.png" width="650">
 
 [bin() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/binfunction)
 
@@ -559,7 +559,7 @@ Write a query to show a timechart of the **average temperature** over time. Use 
 Hint: summarize avg(Temp) by bin(enqueuedTime, 30m) 
 
 Expected result:</br>
-<img src="/assets/images/timeseries.png" width="600">
+<img src="/assets/images/timeseries.png" width="650">
 
 [summarize operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
@@ -688,7 +688,7 @@ Write a query to show a timechart of the number of records, by TransportationMod
 
 Expected result:
 
-<img src="/assets/images/chart-4.png" width="600">
+<img src="/assets/images/chart-4.png" width="650">
 
 #### Task 3: Some geo-mapping
 Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
@@ -771,7 +771,7 @@ The anomalies/outliers can be clearly spotted in the 'anomalies_flags' points.
   
   Expected result:
   
-<img src="/assets/images/Challenge6-Task4-anomalies.png" width="600">
+<img src="/assets/images/Challenge6-Task4-anomalies.png" width="650">
 </br></br>
 
 **FOR THE NEXT TASKS, WE WILL USE the NYC TAXI DATA.**  <br>
@@ -781,19 +781,22 @@ If the proctor hasn't provided the data set, use this Azure Open Dataset on [NYC
 #### Task 5: Get familiar with the new table and create a piechart
 Write some queries to get familiar with this table. After some familiarity, write a query to create a piechart of the payments type. Use 'tostring' to convert the payment_type to string before rendering the piechart.
 
+Expected result:</br>
+<img src="/assets/images/taxi-pie.png" width="500">
+
 #### Task 6: Datetime operations
 Write a query to create a columnchart which will show the number of rides for each day of the week, across the entire data set.  You can use 1, 2, ..., 7 to denote Sunday through Saturday.
 
 [dayofweek() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)
   
 Expected result:</br>
-<img src="/assets/images/taxi-days.png" width="600">
+<img src="/assets/images/taxi-days.png" width="650">
 
 #### Task 7: Multiple series on the same timechart
 Write a query to find out if the tip amount correlates with the number of passengers in the taxi between 1 July 2021 and 31 July 2021. Restrict the number of passengers to maximum of 4.
 
 Expected result:</br>
-<img src="/assets/images/chart-4.png" width="600">
+<img src="/assets/images/taxi_passengers.png" width="650">
 
 #### Task 8: Detect anomalies in the tip amount
 Write a query to draw anomaly chart for the tip amount in the month of July 2021. <br>
@@ -801,7 +804,7 @@ Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
 Expected result:</br>
-<img src="/assets/images/tip_anomaly.png" width="600">
+<img src="/assets/images/tip_anomaly.png" width="650">
 
 #### Task 9: External data
 
@@ -829,7 +832,7 @@ What is the most common method of payment for rides? Credit cards or cash? What 
 
 Expected result:
   
- <img src="/assets/images/Challenge6-Task9-Pic1.png" width="600">
+ <img src="/assets/images/Challenge6-Task9-Pic1.png" width="650">
   
 #### Task 11: Forecasting
 Create a timechart that will show:
@@ -850,7 +853,7 @@ taxi
 - Once a series is created, you can render a timechart.
 
 Expected result: </br>
-<img src="/assets/images/forecast.png" width="600">
+<img src="/assets/images/forecast.png" width="650">
 
 ### Challenge 7: Visualisation
 
