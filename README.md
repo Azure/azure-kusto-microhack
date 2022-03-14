@@ -671,9 +671,9 @@ The schema of the new (destination) table would be:
 ### Challenge 6: Going more advanced with KQL
 
 #### Task 1: Declaring variables
-Write a query to create a table of the 10 device Ids which have the highest Shock, from the last 1 day. Then, use this list in a following query to find the average temperature of these 10 devices.
+Use a **'let'** statement to create a list of the 10 device Ids which have the highest Shock. Then, use this list in a following query to find the average temperature of these 10 devices.
 
-You can use the **'let'** statement to set a variable name equal to an expression or a function, or to create views (a virtual tables based on the result-set of another query. Just like a real table, a view contains rows and columns. ).
+You can use the **'let'** statement to set a variable name equal to an expression or a function.
 let statements are useful for:
 - Breaking up a complex expression into multiple parts, each represented by a variable.
 - Defining constants outside of the query body for readability.
