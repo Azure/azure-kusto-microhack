@@ -683,6 +683,8 @@ Hint 1: [in operator - Azure Data Explorer | Microsoft Docs](https://docs.micros
 
 Hint 2: [let - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement#examples)
 
+Hint 3: Remember to include a ";" at the end of your let statement.
+
 #### Task 2: Add more fields to your timechart
 Write a query to show a timechart of the number of records, by TransportationMode. Use 10 minute bins.
 
