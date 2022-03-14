@@ -739,7 +739,7 @@ Time series decomposition involves thinking of a series as a combination of 4 co
 - noise (The residual random variation in the series). 
 We can use built in functions, that uses time series decomposition to forecast future metric values and/or detect anomalous values.
 
-This is how time series looks like:
+This is what time series looks like:
 
 ![Screen capture 1](/assets/images/Challenge6-Task4-Pic1.png)
 
@@ -801,7 +801,7 @@ Expected result:</br>
 <img src="/assets/images/taxi_passengers.png" width="650">
 
 #### Task 8: Detect anomalies in the tip amount
-Write a query to draw anomaly chart for the tip amount in the month of July 2021. <br>
+Write a query to draw an anomaly chart for the tip amount in the month of July 2021. <br>
 Hint 1: make-series for the average tip amount, with 1 h steps <br>
 Hint 2: Use series_decompose_anomalies with this series and parameter of 5 (sensitivity level)
 
@@ -861,7 +861,7 @@ Expected result: </br>
 
 #### Task 1: Prepare interactive dashboards with ADX Dashboard
 
-Using Dashboard feature of Azure Data Explorer, build a dashboard using outputs of any 5 queries (on LogisticsTelemetryHistorical table) that you have created in the previous challenges with the following improvements:
+Using the Dashboard feature of Azure Data Explorer, build a dashboard using outputs of any 5 queries (on LogisticsTelemetryHistorical table) that you have created in the previous challenges with the following improvements:
   - Add filter on the dashboard so that the user can choose the timespan
   - Add filter on the dashboard so that the user can choose the transportation mode
 
