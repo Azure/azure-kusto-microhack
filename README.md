@@ -693,7 +693,7 @@ Expected result:
 <img src="/assets/images/chart-4.png" width="650">
 
 #### Task 3: Some geo-mapping
-Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 7 days.
+Write a query to show on map the locations (based on the longitude and latitude) of 10 devices with the highest temperature from the last 90 days.
 <br>
 Hint 1: 'top' operator </br>
 Hint 2: render scatterchart with (kind = map)
