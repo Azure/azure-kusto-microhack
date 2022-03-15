@@ -87,7 +87,7 @@ This Microhack is organized into the following 4 challenges:
 - Challenge 1: Create an ADX cluster
 - Challenge 2: Create integration with Azure services (Event Hub and Storage Account)
 - Challenge 3: Starting with the basics of KQL
-- Challenge 4: Check stats and key metrics of the cluster
+<!---- Challenge 4: Check stats and key metrics of the cluster -->
 
 Each challenge has a set of tasks that need to be completed in order to move on to the next challenge. It is advisable to complete the challenges and tasks in the prescribed order.
 
@@ -563,6 +563,8 @@ Expected result:</br>
 
 [summarize operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator)
 
+<!---
+
 #### Challenge 4: Check stats and key metrics of the cluster
     
   ##### Task 1:  #####
@@ -583,6 +585,7 @@ Expected result:</br>
 **Relevant docs for this challenge:**
   - [Monitor Azure Data Explorer performance, health & usage with metrics | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/using-metrics)
 
+-->
 
 ## Microhack 2: Data exploration and visualization with KQL (Preview)
 
