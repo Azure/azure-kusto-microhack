@@ -72,7 +72,7 @@ By analyzing structured, semi-structured, and unstructured data across time seri
 
 Azure Data Explorer capabilities are extended by other services built on its powerful query language, including [Azure Monitor logs](https://docs.microsoft.com/en-us/azure/log-analytics/), [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), [Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/), and [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
 
-
+### How to start with ADX
 Generally, when starting with Azure Data Explorer, you will follow the following steps (ADX Microhacks will cover all these steps):
 1. **Create an ADX cluster**: To use Azure Data Explorer you first create a cluster. An Azure Data Explorer cluster is the most basic unit.
 2. **Create database**: Each cluster has one or more databases in that cluster. Each Azure Data Explorer cluster can hold up to 10,000 databases and each database up to 10,000 tables. 
