@@ -5,7 +5,7 @@ Kusto Product Group and Microsoft Global Black Belt team are pleased to present 
 - [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack1)
 This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
 
-- [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack#microhack-2-data-exploration-and-visualisation-with-kql-preview)
+- [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack2)
 This MicroHack will focus on enabling the participants to write Kusto queries to explore and analyze the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the Microhack 1 before beginning with Microhack 2.
 
 - [**Microhack 3: Advanced capabilities**](https://github.com/Azure/azure-kusto-microhack3)
@@ -73,9 +73,16 @@ By analyzing structured, semi-structured, and unstructured data across time seri
 Azure Data Explorer capabilities are extended by other services built on its powerful query language, including [Azure Monitor logs](https://docs.microsoft.com/en-us/azure/log-analytics/), [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), [Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/), and [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
 
 
-Generally speaking, when you interact with Azure Data Explorer, you're going to go through the following workflow (ADX Microhacks will cover all these steps):
+Generally, when starting with Azure Data Explorer, you will follow the following steps (ADX Microhacks will cover all these steps):
 1. **Create an ADX cluster**: To use Azure Data Explorer you first create a cluster. An Azure Data Explorer cluster is the most basic unit.
 2. **Create database**: Each cluster has one or more databases in that cluster. Each Azure Data Explorer cluster can hold up to 10,000 databases and each database up to 10,000 tables. 
 3. **Ingest data**: Load data into database tables so that you can run queries against it. Azure Data Explorer supports several ingestion methods.
 4. **Query data**: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
 5. **Visualize results**: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
+
+### Ready to go? It's Microhack time!
+- [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack1)
+
+- [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack2)
+
+- [**Microhack 3: Advanced capabilities**](https://github.com/Azure/azure-kusto-microhack3)
