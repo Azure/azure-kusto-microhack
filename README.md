@@ -11,6 +11,13 @@ This MicroHack will focus on enabling the participants to write Kusto queries to
 - [**Microhack 3: Advanced capabilities**](https://github.com/Azure/azure-kusto-microhack3)
 This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyze the data.
 
+---
+Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microack.
+<img src="/assets/images/badge.png" width="200">
+---
+
+
+
 ### Scenario 
 
 Contoso is a supply chain logistics company that runs a fleet of ships, trucks, and cargo planes to transport and deliver goods around the world. Some of the world’s largest enterprises rely on Contoso’s logistics capabilities to deliver goods to their end customers. Contoso has invested in connecting its fleet with sensors that measure temperature, pressure, humidity, tilt, shock, and light exposure inside its fleet. These sensors emit telemetry data every 1 minute, property data whenever there is a change in the device property, and command data whenever a new command is executed. 
