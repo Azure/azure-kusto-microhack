@@ -65,7 +65,7 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
 
   4. Deploy solution
   ```
-  cd ADXIoTAnalytics
+  cd ADX-IoT-Analytics-Solution-Accelerato
   . ./deploy.sh
   ```
 
