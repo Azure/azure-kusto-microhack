@@ -49,11 +49,11 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
   az login
   ```
   
-  Note: You must do this step or you will see errors when running the script when connecting to IoT Central
+  Note: You must do this step or you will see errors when running the script when connecting to IoT Central. If you're already logged in, click ctrl + c to continue. 
 
   2. If you have more than one subscription, select the appropriate one:
   ```
-  az account set --subscription "<your-subscription>"
+  az account set --subscription "<your-subscription-ID>"
   ```
 
   3. Get the latest version of the repository
@@ -65,7 +65,7 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
 
   4. Deploy solution
   ```
-  cd ADX-IoT-Analytics-Solution-Accelerato
+  cd ADX-IoT-Analytics-Solution-Accelerator
   . ./deploy.sh
   ```
 
