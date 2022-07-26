@@ -12,7 +12,7 @@ This MicroHack will focus on enabling the participants to write Kusto queries to
 This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyze the data.
 
 ---
-Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microack. </br></br>
+Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microhack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microhack. </br></br>
 ---
 <p align="center"><img src="/assets/images/badge.png" width="200"></p>
 
@@ -28,7 +28,7 @@ This MicroHack walks through the steps in designing, creating, and configuring A
 
 ### Pre-requisites
 - An Azure subscription
-- (Not applicable for proctor led events) Deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (use this guide to create this infrastructure). For proctor led events, this infrastructure has been pre-created for you. Proctor will provide connection strings, or SAS tokens at an appropriate stage of the hack.
+- (Not applicable for proctor led events) Deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (Steps to create the infrastructure is given below in this guide). For proctor led events, this infrastructure has been pre-created for you. Proctor will provide connection strings, or SAS tokens at an appropriate stage of the hack.
 - Authorization to create an Azure Data Explorer cluster or Synapse Data Explorer Pool
 
 ### Overview - The microhack architecture
@@ -65,12 +65,28 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
 
   4. Deploy solution
   ```
-  cd ADX-IoT-Analytics-Solution-Accelerato
+  cd ADX-IoT-Analytics-Solution-Accelerator
   . ./deploy.sh
   ```
 
   5. Choose option 2 to deploy from the options provided
-  
+
+### (Optional checks) Confirm deployment success
+
+After the deployment is complete, do the following checks to confirm data is flowing into Event Hub.
+
+1. Open the Resource Group that is created newly and check that one Event Hub, one IOT Central Application and one Storage Account are created.
+
+2. Open IOT Centra Application, and from overview page, click on the IOT central Application URL.
+
+3. A new web page with Azure IOT central Hub will open. From the "Devices" menu, check test devices are created and simulated.
+![Iot Central Devices simulation](/assets/images/Deployment_Check1_pic1.png)
+
+4. Similarly, from the "Destinations" tab on the left hand menu, check that both Export and Destination are healthy.
+![Iot Central Destination Check](/assets/images/Deployment_Check2_pic1.png)
+![Iot Central Export Check](/assets/images/Deployment_Check2_pic2.png)
+
+5. Now from the Azure portal, open Event Hub that is created and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing and messages should not be zero.
 
 ### What is Azure Data Explorer and when is it a good fit?
 
