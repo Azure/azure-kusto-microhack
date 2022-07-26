@@ -77,7 +77,7 @@ After the deployment is complete, do the following checks to confirm data is flo
 
 1. Open the Resource Group that is created newly and check that one Event Hub, one IOT Central Application and one Storage Account are created.
 
-2. Open IOT Centra Application, and from overview page, click on the IOT central Application URL.
+2. Open IOT Central Application, and from overview page, click on the IOT central Application URI.
 
 3. A new web page with Azure IOT central Hub will open. From the "Devices" menu, check test devices are created and simulated.
 ![Iot Central Devices simulation](/assets/images/Deployment_Check1_pic1.png)
@@ -87,6 +87,8 @@ After the deployment is complete, do the following checks to confirm data is flo
 ![Iot Central Export Check](/assets/images/Deployment_Check2_pic2.png)
 
 5. Now from the Azure portal, open Event Hub that is created and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing and messages should not be zero.
+
+Note: Data from Event Hub is crucial for succesfully setting up streaming ingestion into ADX. Please take help from proctor if messages are not flowing into Event Hub.
 
 ### What is Azure Data Explorer and when is it a good fit?
 
