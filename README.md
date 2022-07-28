@@ -74,7 +74,7 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
   6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1370">
   
 
-> **Tip**
+> **Tip** <br>
 > 📝 Write down the name of the Resource Group that has been created (indicated in green in the image above). 
 
 >
