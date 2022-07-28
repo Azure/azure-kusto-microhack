@@ -49,7 +49,7 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
   az login
   ```
   
-  Note: You must do this step or you will see errors when running the script when connecting to IoT Central. If you're already logged in, click ctrl + c to continue. 
+  Note: You must do this step and log in using the prompted URL, even if you're already logged in to Azure. Otherwise, you will see errors when running the script when connecting to IoT Central.
 
   2. If you have more than one subscription, select the appropriate one:
   ```
