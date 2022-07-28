@@ -74,20 +74,8 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
   6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1300">
   
 
-> **Tip**
+> **Tip** <br>
 > 📝 Write down the name of the Resource Group that has been created (indicated in green in the image above). You'll need it later to locate the resources. 
-
-
-<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
-<span>
-<p style='margin-top:1em; text-align:center'>
-<b>sentence</b></p>
-<p style='margin-left:1em;'>
-Note
-</p>
-<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Gary Provost</b> <i>(100 Ways to Improve Your Writing, 1985)</i>
-</p></span>
-</div>
 
 >
 
