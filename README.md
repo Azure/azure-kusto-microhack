@@ -71,10 +71,10 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
 
   5. Choose option 2 to deploy from the options provided
   
-  6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1300">
+  6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1370">
   
 
-> **📝 Tip ** <br>
+> 📝** Tip ** <br>
 > Write down the name of the Resource Group that has been created (indicated in green in the image above). You'll need it later to locate the resources. 
 
 >
@@ -94,7 +94,7 @@ After the deployment is complete, do the following checks to confirm data is flo
 ![Iot Central Destination Check](/assets/images/Deployment_Check2_pic1.png)
 ![Iot Central Export Check](/assets/images/Deployment_Check2_pic2.png)
 
-5. Now from the Azure portal, open Event Hub that is created and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing and messages should not be zero. <img src="/assets/images/Deployment_Check_EH_messages.png" width="550">
+5. Now from the Azure portal, open Event Hub that is created and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing and messages should not be zero. <img src="/assets/images/Deployment_Check_EH_messages.png" width="540">
 
 Note: Data from Event Hub is crucial for succesfully setting up streaming ingestion into ADX. Please take help from proctor if messages are not flowing into Event Hub.
 
