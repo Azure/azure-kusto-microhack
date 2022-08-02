@@ -61,7 +61,7 @@ On the [Azure Cloud Shell](https://shell.azure.com/) run the following commands 
   git clone https://github.com/MSUSSolutionAccelerators/ADX-IoT-Analytics-Solution-Accelerator.git
   ```
 
-  Optionally, you can update the [iotanalyticsLogistics.parameters.json](https://github.com/bwatts64/ADXIoTAnalytics/blob/main/iotanalyticsLogistics.parameters.json) file to   personalize your deployment.
+  Optionally, you can update the cloned [iotanalyticsLogistics.parameters.json](https://github.com/MSUSSolutionAccelerators/ADX-IoT-Analytics-Solution-Accelerator/blob/main/iotanalyticsStore.parameters.json) file to personalize your deployment.
 
   4. Deploy solution
   ```
