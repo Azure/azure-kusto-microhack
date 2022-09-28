@@ -28,7 +28,7 @@ This MicroHack walks through the steps in designing, creating, and configuring A
 
 ### Pre-requisites
 - An Azure subscription
-- (Not applicable for proctor led events) Deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (Steps to create the infrastructure is given below in this guide). For proctor led events, this infrastructure has been pre-created for you. Proctor will provide connection strings, or SAS tokens at an appropriate stage of the hack.
+- Use the Azure Cloud Shell to deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (Steps to create the infrastructure is given below in this guide). 
 - Authorization to create an Azure Data Explorer cluster or Synapse Data Explorer Pool
 
 ### Overview - The microhack architecture
