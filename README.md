@@ -1,6 +1,6 @@
 # Azure Data Explorer Microhack (Preview)
 
-Kusto Product Group and Microsoft Global Black Belt team are pleased to present this challenge based, collaboration driven, discover-by-doing learning experience to you. Microhacks are divided into three parts to cater enough time for the participants to understand the key concepts of Azure Data Explorer effectively.
+Azure Data Explorer Microhack is a challenge based, collaboration driven, discover-by-doing learning experience. Microhacks are divided into three modules to cater enough time for the participants to understand the key concepts of Azure Data Explorer.
 
 - [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack1)
 This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
