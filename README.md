@@ -14,7 +14,7 @@ This Microhack will focus on enabling the participants to create Materialized Vi
 ---
 Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microhack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microhack. </br></br>
 ---
-<p align="center"><img src="/assets/images/badge.png" width="200"></p>
+<p align="center"><img src="/assets/images/Badge-microhack-2stars.png" width="200"></p>
 
 
 
