@@ -12,7 +12,7 @@ This MicroHack will focus on enabling the participants to write Kusto queries to
 This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyze the data.
 
 ---
-Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microhack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microhack. </br></br>
+Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with ✅ in each Microhack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microhack. </br></br>
 ---
 <p align="center"><img src="/assets/images/Badge-microhack-2stars.png" width="300"></p>
 
