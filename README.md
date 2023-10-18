@@ -99,7 +99,7 @@ After the deployment is complete, do the following checks to confirm data is flo
 5. Now from the Azure Portal, open the Event Hub that was created, and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing into the Event Hub and the number of messages should not be zero.
    <img src="/assets/images/Deployment_Check_EH_messages.png" width="540">
 
-Note: Data from Event Hub is crucial for succesfully setting up ingestion into ADX. Please take help from the proctor if messages are not flowing into the Event Hub.
+**Note:** Data from Event Hub is crucial for succesfully setting up ingestion into ADX. Please take help from the proctor if messages are not flowing into the Event Hub.
 
 ---
 
