@@ -13,7 +13,7 @@ Azure Data Explorer Microhack is a challenge-based, collaboration-driven, discov
 - [**Microhack 3: Advanced capabilities**](https://github.com/Azure/azure-kusto-microhack3)
   This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyze the data.
 
-Let's get familar with the scenario below and get Microhacking!
+Let's get familiar with the scenario below and get Microhacking!
 
 ---
 
@@ -81,8 +81,7 @@ cd ADX-IoT-Analytics-Solution-Accelerator
 
 6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1370">
 
-> **Tip**
-> 📝 Write down the name of the Resource Group that has been created (indicated in green in the image above).
+> **Tip** 📝 Write down the name of the Resource Group that has been created (indicated in green in the image above).
 
 ### Confirm Deployment Success (optional)
 
@@ -91,15 +90,15 @@ After the deployment is complete, do the following checks to confirm data is flo
 1. Open the Resource Group that is created newly and check that one Event Hub, one IoT Central Application and one Storage Account are created.
 2. Open IoT Central Application, and from overview page, click on the IoT Central Application URI.
 3. A new web page with Azure IoT Central will open. From the "Devices" menu, check 30 test devices are created and simulated.
-   ![Iot Central Devices simulation](/assets/images/Deployment_Check1_pic1.png)
+   ![IoT Central Devices simulation](/assets/images/Deployment_Check1_pic1.png)
 4. Similarly, from the "Data export" tab on the left hand menu, check that both Export and Destination are healthy.
-   ![Iot Central Destination Check](/assets/images/Deployment_Check2_pic1.png)
-   ![Iot Central Export Check](/assets/images/Deployment_Check2_pic2.png)
+   ![IoT Central Destination Check](/assets/images/Deployment_Check2_pic1.png)
+   ![IoT Central Export Check](/assets/images/Deployment_Check2_pic2.png)
 
 5. Now from the Azure Portal, open the Event Hub that was created, and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing into the Event Hub and the number of messages should not be zero.
    <img src="/assets/images/Deployment_Check_EH_messages.png" width="540">
 
-**Note:** Data from Event Hub is crucial for succesfully setting up ingestion into ADX. Please take help from the proctor if messages are not flowing into the Event Hub.
+**Note:** Data from Event Hub is crucial for successfully setting up ingestion into ADX. Please take help from the proctor if messages are not flowing into the Event Hub.
 
 ---
 
