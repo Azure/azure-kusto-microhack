@@ -1,40 +1,44 @@
-# Azure Data Explorer Microhack (Preview)
+# Azure Data Explorer Microhack
 
-Azure Data Explorer Microhack is a challenge based, collaboration driven, discover-by-doing learning experience. Microhacks are divided into three modules to cater enough time for the participants to understand the key concepts of Azure Data Explorer.
+## Introduction
 
-- [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack1)
-This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
+Azure Data Explorer Microhack is a challenge-based, collaboration-driven, discover-by-doing learning experience. Microhacks are divided into three modules to cater enough time for the participants to understand the key concepts of Azure Data Explorer. As topics and several activities build on one another, it is recommended to complete the Microhacks in order.
 
-- [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack2)
-This MicroHack will focus on enabling the participants to write Kusto queries to explore and analyze the data stored in the clusters. Participants will also create cool visualizations. It is recommended to complete the Microhack 1 before beginning with Microhack 2.
+- [**Microhack 1: Cluster Creation and Data Ingestion**](https://github.com/Azure/azure-kusto-microhack1)
+  This MicroHack will focus on enabling the participants to design ADX based big data analytics solution, create an ADX cluster, and ingest data into the cluster.
+
+- [**Microhack 2: Data Exploration and Visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack2)
+  This MicroHack will focus on enabling the participants to write Kusto queries to explore and analyze the data stored in the clusters. This includes anomaly detection, forecasting, and other advanced operations. Participants will also create common visualizations. It is recommended to complete the Microhack 1 before beginning with Microhack 2.
 
 - [**Microhack 3: Advanced capabilities**](https://github.com/Azure/azure-kusto-microhack3)
-This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyze the data.
+  This Microhack will focus on enabling the participants to create Materialized Views, Functions, and use advanced operators to explore and analyze the data.
+
+Let's get familiar with the scenario below and get Microhacking!
 
 ---
-Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microhack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microhack. </br></br>
----
+
+## Earn a digital badge! In order to receive the ADX microhack digital badge, you will need to complete the challenges marked with 🎓 in each Microhack. Please submit the KQL queries/commands using the answer sheets found at the beginning of each microhack. </br></br>
+
 <p align="center"><img src="/assets/images/Badge-microhack-2stars.png" width="300"></p>
 
+## Scenario
 
+Contoso is a supply chain logistics company that runs a fleet of ships, trucks, and cargo planes to transport and deliver goods around the world. Some of the world’s largest enterprises rely on Contoso’s logistics capabilities to deliver goods to their end customers. Contoso has invested in connecting its fleet with sensors that measure temperature, pressure, humidity, tilt, shock, and light exposure inside its fleet. These sensors emit telemetry data every 1 minute, property data whenever there is a change in the device property, and command data whenever a new command is executed.
 
+Contoso is looking for a suitable data storage and analytical solution that provides out-of-the-box integration with Azure IoT services such as IoT Hub, Event Hubs as well as can read data from Storage Accounts. Contoso is developing a SaaS application that will allow its customers to track, trace and monitor their shipments. Contoso wants to offer out-of-the-box visualizations with interactive capabilities to enable its customers to drill-in/drill-out of the data. Contoso will offer its customers to view and analyze the last 1 month of data. Contoso will retain every customer’s data for up to 1 year. Contoso wants to offer blazing fast loading of visualizations to its customers. Additionally, a team of data scientists at Contoso are required to perform advanced analytics on the data to detect anomalies, forecast trends, and bring in external data sources to enrich the IoT telemetry.
 
-### Scenario 
+This Microhack walks through the steps of designing, creating, and configuring Azure Data Explorer clusters, keeping in mind these requirements. Once the cluster is deployed, this MicroHack enlists the steps to ingest data into ADX databases and tables using various integration methods such as One-Click ingestion from common data sources. As your new ADX skills are put to the test, you can refer back to these requirements or think about them as anecdotes for your own business challenges.
 
-Contoso is a supply chain logistics company that runs a fleet of ships, trucks, and cargo planes to transport and deliver goods around the world. Some of the world’s largest enterprises rely on Contoso’s logistics capabilities to deliver goods to their end customers. Contoso has invested in connecting its fleet with sensors that measure temperature, pressure, humidity, tilt, shock, and light exposure inside its fleet. These sensors emit telemetry data every 1 minute, property data whenever there is a change in the device property, and command data whenever a new command is executed. 
+## Pre-requisites
 
-Contoso is looking for suitable data storage and analytical solution that provides out of the box integration with Azure IoT services such as IoT Hub, Event Hubs as well as can read data from storage accounts. Contoso is developing a SaaS application that will allow its customers to track, trace and monitor their shipments. Contoso wants to offer out of the box visualizations with interactive capabilities to enable its customers to drill-in/drill-out of the data. Contoso will offer its customers to view and analyze the last 6 months data. Contoso will retain every customer’s data for up to 1 year. Contoso wants to offer blazing fast loading of visualizations to its customers.
-This MicroHack walks through the steps in designing, creating, and configuring Azure Data Explorer clusters keeping in mind these requirements. Once the cluster is deployed, this MicroHack enlists the steps to ingest data into ADX databases and tables using various integration methods such as One Click ingestion.
+- An Azure Subscription
+- Use the Azure Cloud Shell to deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (steps to create the infrastructure is given below).
+- Authorization to create an Azure Data Explorer cluster, Synapse Data Explorer Pool, or Fabric Real-Time Analytics Databases.
 
-### Pre-requisites
-- An Azure subscription
-- Use the Azure Cloud Shell to deploy IoT Central application, create simulated devices and create Data Exports to Event Hubs and Storage Accounts (Steps to create the infrastructure is given below in this guide). 
-- Authorization to create an Azure Data Explorer cluster or Synapse Data Explorer Pool
-
-### Overview - The microhack architecture
+## Overview: Microhack Architecture
 
 The following architecture has been deployed for you, except the ADX cluster and its integration with other Azure services.
-IoT Central acts as the source of telemetry generated by Contoso’s sensors installed on its fleet of trucks, vessels, and airplanes. Telemetry data is streamed on a continuous basis to the Event Hub. Device logs, device property changes and commands executed on the devices are stored in a Storage Account as blobs. 
+IoT Central acts as the source of telemetry generated by Contoso’s sensors installed on its fleet of trucks, vessels, and airplanes. Telemetry data is streamed on a continuous basis to the Event Hub. Device logs, device property changes and commands executed on the devices are stored in a Storage Account as blobs.
 
 ![Screen capture 1](/assets/images/architecture_diagram.png)
 
@@ -44,61 +48,61 @@ You can deploy the aforementioned architecture using the steps mentioned below:
 
 On the [Azure Cloud Shell](https://shell.azure.com/), use bash to run the following commands to deploy the solution:
 
-  1. Login to Azure
-  ```
-  az login
-  ```
-  
-  Note: You must do this step and log in using the prompted URL, even if you're already logged in to Azure. Otherwise, you will see errors when running the script when connecting to IoT Central.
+1. Login to Azure
 
-  2. If you have more than one subscription, select the appropriate one:
-  ```
-  az account set --subscription "<your-subscription-ID>"
-  ```
+```shell
+az login
+```
 
-  3. Get the latest version of the repository
-  ```
-  git clone https://github.com/MSUSSolutionAccelerators/ADX-IoT-Analytics-Solution-Accelerator.git
-  ```
+Note: You must do this step and log in using the prompted URL, even if you're already logged in to Azure. Otherwise, you will see errors when running the script when connecting to IoT Central.
 
-  Optionally, you can update the cloned [iotanalyticsLogistics.parameters.json](https://github.com/MSUSSolutionAccelerators/ADX-IoT-Analytics-Solution-Accelerator/blob/main/iotanalyticsStore.parameters.json) file to personalize your deployment.
+2. If you have more than one subscription, select the appropriate one:
 
-  4. Deploy solution
-  ```
-  cd ADX-IoT-Analytics-Solution-Accelerator
-  . ./deploy.sh
-  ```
+```shell
+az account set --subscription "<your-subscription-ID>"
+```
 
-  5. Choose option 2 to deploy from the options provided
-  
-  6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1370">
-  
+3. Get the latest version of the repository
 
-> **Tip** <br>
-> 📝 Write down the name of the Resource Group that has been created (indicated in green in the image above). 
+```shell
+git clone https://github.com/MSUSSolutionAccelerators/ADX-IoT-Analytics-Solution-Accelerator.git
+```
 
->
+Optionally, you can update the cloned [iotanalyticsLogistics.parameters.json](https://github.com/MSUSSolutionAccelerators/ADX-IoT-Analytics-Solution-Accelerator/blob/main/iotanalyticsStore.parameters.json) file to personalize your deployment.
 
-### (Optional checks) Confirm deployment success
+4. Deploy solution
+
+```shell
+cd ADX-IoT-Analytics-Solution-Accelerator
+. ./deploy.sh
+```
+
+5. Choose option 2 to deploy from the options provided
+
+6. This is the expected result: <img src="/assets/images/Deployment_Check_CLI_Screenshot.png" width="1370">
+
+> **Tip** 📝 Write down the name of the Resource Group that has been created (indicated in green in the image above).
+
+### Confirm Deployment Success (optional)
 
 After the deployment is complete, do the following checks to confirm data is flowing into Event Hub.
 
-1. Open the Resource Group that is created newly and check that one Event Hub, one IOT Central Application and one Storage Account are created.
-
-2. Open IOT Central Application, and from overview page, click on the IOT central Application URI.
-
-3. A new web page with Azure IOT central Hub will open. From the "Devices" menu, check test devices are created and simulated.
-![Iot Central Devices simulation](/assets/images/Deployment_Check1_pic1.png)
-
+1. Open the Resource Group that is created newly and check that one Event Hub, one IoT Central Application and one Storage Account are created.
+2. Open IoT Central Application, and from overview page, click on the IoT Central Application URI.
+3. A new web page with Azure IoT Central will open. From the "Devices" menu, check 30 test devices are created and simulated.
+   ![IoT Central Devices simulation](/assets/images/Deployment_Check1_pic1.png)
 4. Similarly, from the "Data export" tab on the left hand menu, check that both Export and Destination are healthy.
-![Iot Central Destination Check](/assets/images/Deployment_Check2_pic1.png)
-![Iot Central Export Check](/assets/images/Deployment_Check2_pic2.png)
+   ![IoT Central Destination Check](/assets/images/Deployment_Check2_pic1.png)
+   ![IoT Central Export Check](/assets/images/Deployment_Check2_pic2.png)
 
-5. Now from the Azure portal, open Event Hub that is created and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing and messages should not be zero. <img src="/assets/images/Deployment_Check_EH_messages.png" width="540">
+5. Now from the Azure Portal, open the Event Hub that was created, and check the graph "Messages" in the overview page. Note that the simulated devices messages should be flowing into the Event Hub and the number of messages should not be zero.
+   <img src="/assets/images/Deployment_Check_EH_messages.png" width="540">
 
-Note: Data from Event Hub is crucial for succesfully setting up ingestion into ADX. Please take help from proctor if messages are not flowing into Event Hub.
+**Note:** Data from Event Hub is crucial for successfully setting up ingestion into ADX. Please take help from the proctor if messages are not flowing into the Event Hub.
 
-### What is Azure Data Explorer and when is it a good fit?
+---
+
+## What is Azure Data Explorer and when is it a good fit?
 
 Azure Data Explorer is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time. The Azure Data Explorer toolbox gives you an end-to-end solution for data ingestion, query, visualization, and management.
 
@@ -107,15 +111,18 @@ By analyzing structured, semi-structured, and unstructured data across time seri
 Azure Data Explorer capabilities are extended by other services built on its powerful query language, including [Azure Monitor logs](https://docs.microsoft.com/en-us/azure/log-analytics/), [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), [Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/), and [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
 
 ### How to start with ADX
+
 Generally, when starting with Azure Data Explorer, you will follow the following steps (ADX Microhacks will cover all these steps):
+
 1. **Create an ADX cluster**: To use Azure Data Explorer you first create a cluster. An Azure Data Explorer cluster is the most basic unit.
-2. **Create database**: Each cluster has one or more databases in that cluster. Each Azure Data Explorer cluster can hold up to 10,000 databases and each database up to 10,000 tables. 
+2. **Create database**: Each cluster has one or more databases in that cluster. Each Azure Data Explorer cluster can hold up to 10,000 databases and each database up to 10,000 tables.
 3. **Ingest data**: Load data into database tables so that you can run queries against it. Azure Data Explorer supports several ingestion methods.
-4. **Query data**: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint. 
-5. **Visualize results**: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana. 
+4. **Query data**: Azure Data Explorer uses the Kusto Query Language, which is an expressive, intuitive, and highly productive query language. It offers a smooth transition from simple one-liners to complex data processing scripts, and supports querying structured, semi-structured, and unstructured (text search) data. Use the web application to run, review, and share queries and results. You can also send queries programmatically (using an SDK) or to a REST API endpoint.
+5. **Visualize results**: Use different visual displays of your data in the native Azure Data Explorer Dashboards. You can also display your results using connectors to some of the leading visualization services, such as Power BI and Grafana.
 
 ### Ready to go? It's Microhack time!
-- [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack1)
+
+- [**Microhack 1: Cluster creation and data ingestion**](https://github.com/Azure/azure-kusto-microhack1) 👈 Begin here!
 
 - [**Microhack 2: Data exploration and visualization using Kusto Query Language (KQL)**](https://github.com/Azure/azure-kusto-microhack2)
 
