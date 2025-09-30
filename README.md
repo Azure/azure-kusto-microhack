@@ -1,4 +1,6 @@
-# Azure Data Explorer Microhack
+# RETIRED Azure Data Explorer Microhack RETIRED
+
+## This repo is retired and no more maintained by the product team. If the links are broken, then there are no workarounds possible.
 
 ## Introduction
 
